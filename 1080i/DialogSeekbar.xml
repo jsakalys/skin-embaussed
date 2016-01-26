@@ -1,0 +1,231 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- Foundation -->
+<window id="115">
+	<defaultcontrol always="true">901</defaultcontrol>
+	<allowoverlay>yes</allowoverlay>
+	<visible>!Window.IsVisible(fullscreeninfo) + [VideoPlayer.IsFullscreen | Window.IsVisible(visualisation)] + [Player.Seeking | Player.DisplayAfterSeek | Player.Paused | Player.Forwarding | Player.Rewinding | Window.IsVisible(videoosd)]</visible>
+
+	<controls>
+
+		<control type="group">
+			<posx>0</posx>
+			<posy>50</posy>
+			<width>1920</width>
+			<height>100</height>
+				<visible>![Window.IsVisible(sliderdialog) | Window.IsVisible(osdvideosettings) | Window.IsVisible(osdaudiosettings)]</visible>
+
+			<!-- PLAY TIME -->
+
+			<control type="label">
+				<posx>150</posx>
+				<posy>855</posy>
+				<width>1680</width>
+				<height>100</height>
+				<label>$INFO[Player.Time]</label>
+				<font>ExtraSmall</font>
+			</control>
+
+			<control type="label">
+				<posx>1780</posx>
+				<posy>855</posy>
+				<width>100</width>
+				<height>100</height>
+				<align>right</align>
+				<label>$INFO[Player.Duration]</label>
+				<font>ExtraSmall</font>
+			</control>
+
+			<!-- TITLE WITH FINISH TIME -->
+
+			<!--<control type="label">
+				<posx>510</posx>
+				<posy>100</posy>
+				<width>900</width>
+				<align>center</align>
+				<font>ExtraSmall</font>
+				<label>$LOCALIZE[31000] $INFO[Player.FinishTime]</label>
+				<visible>Player.Playing</visible>
+			</control>-->
+
+			<control type="label">
+				<posx>510</posx>
+				<posy>50</posy>
+				<width>900</width>
+				<align>center</align>
+				<font>File-List</font>
+				<textcolor>BBFFFFFF</textcolor>
+				<label>$INFO[VideoPlayer.TVShowTitle,, - ]$INFO[VideoPlayer.Title]</label>
+				<visible>Player.Forwarding | Player.Rewinding | Player.Paused</visible>
+			</control>
+
+			<!-- NOW PLAYING WITH TITLE -->
+
+			<control type="label">
+				<posx>510</posx>
+				<posy>0</posy>
+				<width>900</width>
+				<align>center</align>
+				<font>Settings-Cat-Sub</font>
+				<label>Now Playing</label>
+				<visible>Player.Playing</visible>
+			</control>
+
+			<!--<control type="label">
+				<posx>510</posx>
+				<posy>100</posy>
+				<width>900</width>
+				<align>center</align>
+				<font>ExtraSmall</font>
+				<label>$INFO[Player.TimeRemaining,, Remaining]</label>
+				<visible>Player.Forwarding | Player.Rewinding | Player.Paused</visible>
+			</control>-->
+
+			<control type="label">
+				<posx>510</posx>
+				<posy>50</posy>
+				<width>900</width>
+				<align>center</align>
+				<font>File-List</font>
+				<textcolor>BBFFFFFF</textcolor>
+				<label>$INFO[VideoPlayer.TVShowTitle,, - ]$INFO[VideoPlayer.Title]</label>
+				<visible>Player.Playing</visible>
+			</control>
+
+			<!-- CURRENT SELECTED -->
+
+			<control type="label">
+				<posx>510</posx>
+				<posy>0</posy>
+				<width>900</width>
+				<align>center</align>
+				<font>Settings-Cat-Sub</font>
+				<label>112</label>
+				<visible>player.paused</visible>
+			</control>
+
+			<control type="label">
+				<posx>510</posx>
+				<posy>0</posy>
+				<width>900</width>
+				<align>center</align>
+				<font>Settings-Cat-Sub</font>
+				<label>FFx2</label>
+				<visible>player.forwarding2x</visible>
+			</control>
+
+			<control type="label">
+				<posx>510</posx>
+				<posy>0</posy>
+				<width>900</width>
+				<font>Settings-Cat-Sub</font>
+				<align>center</align>
+				<label>FFx4</label>
+				<visible>player.forwarding4x</visible>
+			</control>
+
+			<control type="label">
+				<posx>510</posx>
+				<posy>0</posy>
+				<width>900</width>
+				<font>Settings-Cat-Sub</font>
+				<align>center</align>
+				<label>FFx8</label>
+				<visible>player.forwarding8x</visible>
+			</control>
+
+			<control type="label">
+				<posx>510</posx>
+				<posy>0</posy>
+				<width>900</width>
+				<font>Settings-Cat-Sub</font>
+				<align>center</align>
+				<label>FFx16</label>
+				<visible>player.forwarding16x</visible>
+			</control>
+
+			<control type="label">
+				<posx>510</posx>
+				<posy>0</posy>
+				<width>900</width>
+				<font>Settings-Cat-Sub</font>
+				<align>center</align>
+				<label>FFx32</label>
+				<visible>player.forwarding32x</visible>
+			</control>
+
+			<control type="label">
+				<posx>510</posx>
+				<posy>0</posy>
+				<width>900</width>
+				<font>Settings-Cat-Sub</font>
+				<align>center</align>
+				<label>RWx2</label>
+				<visible>player.rewinding2x</visible>
+			</control>
+
+			<control type="label">
+				<posx>510</posx>
+				<posy>0</posy>
+				<width>900</width>
+				<font>Settings-Cat-Sub</font>
+				<align>center</align>
+				<label>RWx7</label>
+				<visible>player.rewinding4x</visible>
+			</control>
+
+			<control type="label">
+				<posx>510</posx>
+				<posy>0</posy>
+				<width>900</width>
+				<font>Settings-Cat-Sub</font>
+				<align>center</align>
+				<label>RWx8</label>
+				<visible>player.rewinding8x</visible>
+			</control>
+
+			<control type="label">
+				<posx>510</posx>
+				<posy>0</posy>
+				<width>900</width>
+				<font>Settings-Cat-Sub</font>
+				<align>center</align>
+				<label>RWx16</label>
+				<visible>player.rewinding16x</visible>
+			</control>
+
+			<control type="label">
+				<posx>510</posx>
+				<posy>0</posy>
+				<width>900</width>
+				<font>Settings-Cat-Sub</font>
+				<align>center</align>
+				<label>RWx32</label>
+				<visible>player.rewinding32x</visible>
+			</control>
+
+			<!-- PROGRESS BAR -->
+
+			<control type="progress" id="23">
+				<description>Progress Bar</description>
+				<posx>240</posx>
+				<posy>900</posy>
+				<width>1440</width>
+				<height>16</height>
+				<info>Player.Progress</info>
+				<visible>true</visible>
+			</control>
+
+			<control type="slider" id="401">
+				<description>Seekbar</description>
+				<posx>240</posx>
+				<posy>200</posy>
+				<height>2</height>
+				<width>1440</width>
+				<visible>Player.Seeking</visible>
+			</control>
+
+		</control>
+
+	</controls>
+
+</window>

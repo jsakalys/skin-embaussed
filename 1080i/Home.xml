@@ -1,0 +1,963 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Foundation -->
+<window id="0">
+	<defaultcontrol always="true">9000</defaultcontrol>
+	<allowoverlay>yes</allowoverlay>
+	<controls>
+
+<!-- BACKGROUND IMAGE CONTROL -->
+<control type="image">
+	<width>1920</width>
+	<width>1080</width>
+	<texture>backgrounds/13.jpg</texture>
+</control>
+
+		<include>GlobalBackground</include>
+
+<!-- HOME MENU CONTROL -->
+
+		<control type="wraplist" id="9000">
+			<description>Home Wraplist</description>
+			<left>0</left>
+			<top>430</top>
+			<width>1920</width>
+			<height>300</height>
+			<onup>9010</onup>
+			<ondown>9010</ondown>
+			<onleft>9000</onleft>
+			<onright>9000</onright>
+			<orientation>Horizontal</orientation>
+			<focusposition>3</focusposition>
+			<scrolltime>200</scrolltime>
+
+			<animation type="WindowOpen" reversible="false">
+  				<effect type="slide" start="0,500" end="0,0" tween="back" easing="out" time="600" />
+			</animation>
+
+			<animation type="WindowClose" reversible="false">
+  				<effect type="slide" start="0,0" end="0,500" tween="back" easing="in" time="600" />
+			</animation>
+
+			<itemlayout width="270" height="300">
+
+				<control type="image">
+					<left>85</left>
+					<top>25</top>
+					<height>100</height>
+					<width>100</width>
+					<align>center</align>
+					<aligny>center</aligny>
+					<texture>icons/100px/$INFO[ListItem.Icon]</texture>
+					<colordiffuse>FFBBBBBB</colordiffuse>
+				</control>
+
+				<control type="label">
+					<left>135</left>
+					<top>85</top>
+					<height>150</height>
+					<width>270</width>
+					<font>Small</font>
+					<textcolor>80FFFFFF</textcolor>
+					<info>ListItem.Label</info>
+					<align>center</align>
+					<aligny>center</aligny>
+				</control>
+
+
+			</itemlayout>
+
+			<focusedlayout width="300" height="300">
+
+			<control type="group" id="9001">
+				<control type="image">
+					<left>75</left>
+					<top>0</top>
+					<height>150</height>
+					<width>150</width>
+					<align>center</align>
+					<aligny>center</aligny>
+					<texture>icons/150px/$INFO[ListItem.Icon]</texture>
+					<colordiffuse>FFFFFFFF</colordiffuse>
+					<visible>Control.HasFocus(9000)</visible>
+				<animation type="Focus" reversible="false">
+					<effect type="zoom" start="25,25" end="100,100" center="150,75" tween="back" easing="out" time="400" />
+					<effect type="fade" start="75,75" end="100,100" time="400" />
+				</animation>
+				</control>
+
+				<control type="image">
+					<left>75</left>
+					<top>0</top>
+					<height>150</height>
+					<width>150</width>
+					<align>center</align>
+					<aligny>center</aligny>
+					<colordiffuse>FFBBBBBB</colordiffuse>
+					<texture>icons/150px/$INFO[ListItem.Icon]</texture>
+					<visible>!Control.HasFocus(9000)</visible>
+					<animation type="Visible" reversible="false">
+						<effect type="fade" start="100,100" end="75,75" time="200" />
+					</animation>
+				</control>
+
+
+				<control type="label">
+					<left>150</left>
+					<top>115</top>
+					<width>300</width>
+					<height>150</height>
+					<info>ListItem.Label</info>
+					<font>Home</font>
+					<textcolor>80FFFFFF</textcolor>
+					<align>center</align>
+					<aligny>center</aligny>
+					<visible>!Control.HasFocus(9000)</visible>
+					<animation type="Visible" reversible="false">
+						<effect type="fade" start="100,100" end="75,75" time="200" />
+					</animation>
+				</control>
+
+				<control type="label">
+					<left>150</left>
+					<top>115</top>
+					<width>300</width>
+					<height>150</height>
+					<info>ListItem.Label</info>
+					<font>Home</font>
+					<textcolor>DDFFFFFF</textcolor>
+					<align>center</align>
+					<aligny>center</aligny>
+					<visible>Control.HasFocus(9000)</visible>
+					<animation type="Focus" reversible="false">
+						<effect type="zoom" start="25,25" end="100,100" center="175,150" tween="back" easing="out" time="400" />
+						<effect type="fade" start="75,75" end="100,100" time="405" />
+					</animation>
+				</control>
+			</control>
+			</focusedlayout>
+
+			<content>
+
+				<item id="1">
+					<description>Programs</description>
+					<label>31002</label>
+					<onclick>ActivateWindow(Programs,Addons)</onclick>
+					<icon>devtools.png</icon>
+				</item>
+
+				<item id="2">
+					<description>Videos</description>
+					<label>31003</label>
+					<onclick>ActivateWindow(Video,Files)</onclick>
+					<icon>camcorder.png</icon>
+				</item>
+
+				<item id="3">
+					<description>Music</description>
+					<label>31004</label>
+					<onclick>ActivateWindow(Music)</onclick>
+					<icon>music3.png</icon>
+				</item>
+
+				<item id="4">
+					<description>Pictures</description>
+					<label>31005</label>
+					<onclick>ActivateWindow(Pictures)</onclick>
+					<icon>camera.png</icon>
+				</item>
+
+				<item id="5">
+					<description>Movies</description>
+					<label>31006</label>
+					<onclick>ActivateWindow(Video,movietitles)</onclick>
+					<visible>Library.HasContent(Movies)</visible>
+					<icon>movieclacker.png</icon>
+				</item>
+
+				<item id="6">
+					<description>TV Shows</description>
+					<label>31007</label>
+					<onclick>ActivateWindow(Video,tvshowtitles)</onclick>
+					<visible>Library.HasContent(TVShows)</visible>
+					<icon>tv.png</icon>
+				</item>
+
+				<item id="7">
+					<description>Favourites</description>
+					<label>31008</label>
+					<onclick>ActivateWindow(Favourites)</onclick>
+					<icon>fullstar.png</icon>
+				</item>
+
+				<item id="8">
+					<description>Profiles</description>
+					<label>31009</label>
+					<onclick>ActivateWindow(Profiles)</onclick>
+					<icon>user2.png</icon>
+				</item>
+
+				<item id="9">
+					<description>Weather</description>
+					<label>31010</label>
+					<onclick>ActivateWindow(weather)</onclick>
+					<icon>cloud.png</icon>
+				</item>
+
+				<!--
+				<item id="10">
+					<description>File Manager</description>
+					<label>31011</label>
+					<onclick>ActivateWindow(filemanager)</onclick>
+					<icon>file_manager.png</icon>
+				</item> -->
+
+				<item id="11">
+					<description>Settings</description>
+					<label>31012</label>
+					<onclick>ActivateWindow(settings)</onclick>
+					<icon>smarttools.png</icon>
+				</item>
+
+				<item id="12">
+					<description>Power</description>
+					<label>31013</label>
+					<onclick>ActivateWindow(shutdownmenu)</onclick>
+					<icon>activate.png</icon>
+				</item>
+
+				<item id="13">
+					<description>Play Disc</description>
+					<label>31014</label>
+					<onclick>PlayDVD</onclick>
+					<visible>System.HasMediadvd</visible>
+					<icon>camcorder.png</icon>
+				</item>
+
+				<item id="14">
+					<description>Global Search</description>
+					<label>31329</label>
+					<onclick>RunAddon(script.globalsearch)</onclick>
+					<visible>System.HasAddon(script.globalsearch)</visible>
+					<icon>search.png</icon>
+				</item>
+
+			</content>
+
+		</control>
+
+				<!-- SUBMENU CONTROL -->
+
+
+			<control type="wraplist" id="9010">
+				<description>SubMenu Fixed List</description>
+				<left>860</left>
+				<top>295</top>
+				<width>600</width>
+				<height>580</height>
+				<onup>9010</onup>
+				<ondown>9010</ondown>
+				<onleft>9000</onleft>
+				<onright>9000</onright>
+				<orientation>Vertical</orientation>
+				<focusposition>1</focusposition>
+				<movement>0</movement>
+				<scrolltime>0</scrolltime>
+				<visible>true</visible>
+				<autoscroll>false</autoscroll>
+
+			<animation type="WindowOpen" reversible="false">
+  				<effect type="slide" start="1500,0" end="0,0" tween="cubic" easing="out" delay="550" time="600" />
+			</animation>
+
+			<animation type="WindowClose" reversible="false">
+  				<effect type="slide" start="0,0" end="1500,0" tween="cubic" easing="out" time="600" />
+			</animation>
+
+			<itemlayout width="300" height="70">
+
+				<control type="image">
+					<posx>10</posx>
+					<posy>10</posy>
+					<height>50</height>
+					<width>50</width>
+					<aligny>center</aligny>
+					<texture>icons/70px/$INFO[ListItem.Icon]</texture>
+					<colordiffuse>FFBBBBBB</colordiffuse>
+					<visible>![Container(9000).OnNext | Container(9000).OnPrevious]</visible>
+						<animation type="Conditional" condition="Control.HasFocus(9000) + !Container(9000).OnScrollPrevious" reversible="false">
+						<effect type="slide" start="-50,0" end="0,0" tween="quadratic" easing="out" time="300" />
+						<effect type="fade" start="25,25" end="100,100" time="300" />
+						</animation>
+						<animation type="Conditional" condition="Control.HasFocus(9000) + !Container(9000).OnScrollNext" reversible="false">
+						<effect type="slide" start="-50,0" end="0,0" tween="quadratic" easing="out" time="300" />
+						<effect type="fade" start="25,25" end="100,100" time="300" />
+						</animation>
+
+				</control>
+
+				<control type="label">
+					<left>70</left>
+					<top>20</top>
+					<height>40</height>
+					<width>230</width>
+					<font>Small</font>
+					<textcolor>80FFFFFF</textcolor>
+					<info>ListItem.Label</info>
+					<aligny>top</aligny>
+					<visible>![Container(9000).OnNext | Container(9000).OnPrevious]</visible>
+						<animation type="Conditional" condition="Control.HasFocus(9000) + !Container(9000).OnScrollPrevious" reversible="false">
+						<effect type="slide" start="50,0" end="0,0" tween="sine" easing="out" time="300" />
+						<effect type="fade" start="25,25" end="100,100" time="300" />
+						</animation>
+						<animation type="Conditional" condition="Control.HasFocus(9000) + !Container(9000).OnScrollNext" reversible="false">
+						<effect type="slide" start="50,0" end="0,0" tween="sine" easing="out" time="300" />
+						<effect type="fade" start="25,25" end="100,100" time="300" />
+						</animation>
+				</control>
+
+			</itemlayout>
+
+			<focusedlayout width="600" height="300">
+
+				
+
+				<control type="image"> <!-- FOCUSED POSITION WHEN SUBMENU UNFOCUSED -->
+					<posx>10</posx>
+					<posy>10</posy>
+					<height>50</height>
+					<width>50</width>
+					<aligny>center</aligny>
+					<texture>icons/70px/$INFO[ListItem.Icon]</texture>
+					<colordiffuse>FFBBBBBB</colordiffuse>
+				<visible>[Control.HasFocus(9000) | !Control.HasFocus(9010)] + ![Container(9000).OnNext | Container(9000).OnPrevious]</visible>
+						<animation type="Conditional" condition="Control.HasFocus(9000) + !Container(9000).OnScrollPrevious" reversible="false">
+						<effect type="slide" start="-50,0" end="0,0" tween="quadratic" easing="out" time="300" />
+						<effect type="fade" start="25,25" end="100,100" time="300" />
+						</animation>
+						<animation type="Conditional" condition="Control.HasFocus(9000) + !Container(9000).OnScrollNext" reversible="false">
+						<effect type="slide" start="-50,0" end="0,0" tween="quadratic" easing="out" time="300" />
+						<effect type="fade" start="25,25" end="100,100" time="300" />
+						</animation>
+				</control>
+
+				<control type="label">
+					<left>70</left>
+					<top>20</top>
+					<height>40</height>
+					<width>530</width>
+					<font>Small</font>
+					<textcolor>80FFFFFF</textcolor>
+					<info>ListItem.Label</info>
+					<aligny>top</aligny>
+				<visible>[Control.HasFocus(9000) | !Control.HasFocus(9010)] + ![Container(9000).OnNext | Container(9000).OnPrevious]</visible>
+						<animation type="Conditional" condition="Control.HasFocus(9000) + !Container(9000).OnScrollPrevious" reversible="false">
+						<effect type="slide" start="50,0" end="0,0" tween="sine" easing="out" time="300" />
+						<effect type="fade" start="25,25" end="100,100" time="300" />
+						</animation>
+						<animation type="Conditional" condition="Control.HasFocus(9000) + !Container(9000).OnScrollNext" reversible="false">
+						<effect type="slide" start="50,0" end="0,0" tween="sine" easing="out" time="300" />
+						<effect type="fade" start="25,25" end="100,100" time="300" />
+						</animation>
+				</control>
+
+			<!-- FOCUSED POSITION WHEN SUBMENU FOCUSED -->
+
+				<control type="image"> 
+					<posx>0</posx>
+					<posy>0</posy>
+					<height>70</height>
+					<width>70</width>
+					<aligny>center</aligny>
+					<texture>icons/70px/$INFO[ListItem.Icon]</texture>
+					<visible>Control.HasFocus(9010)</visible>
+				<animation type="Focus" reversible="false">
+					<effect type="zoom" start="25,25" end="100,100" center="100,70" tween="back" easing="out" time="400" />
+					<effect type="fade" start="75,75" end="100,100" time="400" />
+				</animation>
+
+				</control>
+
+				<control type="label">
+					<left>85</left>
+					<top>15</top>
+					<height>280</height>
+					<width>515</width>
+					<font>Medium</font>
+					<textcolor>CCFFFFFF</textcolor>
+					<info>ListItem.Label</info>
+					<aligny>top</aligny>
+					<visible>Control.HasFocus(9010)</visible>
+				<animation type="Focus" reversible="false">
+					<effect type="zoom" start="25,25" end="100,100" center="100,70" tween="back" easing="out" time="400" />
+					<effect type="fade" start="75,75" end="100,100" time="405" />
+				</animation>
+				</control>
+
+			</focusedlayout>
+
+			<content>
+					<!-- HOME SUBMENU VIDEOS -->
+						<item>
+							<label>342</label>
+							<onclick>ActivateWindow(Videos,Movies,root)</onclick>
+							<icon>moviefilmplay.png</icon>
+							<thumb>-</thumb>
+							<visible>Library.HasContent(Movies) + Container(9000).HasFocus(2)</visible>
+						</item>
+						<item>
+							<label>20343</label>
+							<onclick>ActivateWindow(Videos,TvShows,root)</onclick>
+							<icon>tv.png</icon>
+							<thumb>-</thumb>
+							<visible>Library.HasContent(TVShows) + Container(9000).HasFocus(2)</visible>
+						</item>
+						<item>
+							<label>136</label>
+							<onclick>ActivateWindow(Videos,Playlists,return)</onclick>
+							<icon>diskinfo.png</icon>
+							<thumb>-</thumb>
+							<visible>Container(9000).HasFocus(2)</visible>
+						</item>
+						<item>
+							<label>744</label>
+							<onclick>ActivateWindow(Videos,Files,return)</onclick>
+							<icon>blankfile.png</icon>
+							<thumb>-</thumb>
+							<visible>Container(9000).HasFocus(2)</visible>
+						</item>
+						<item>
+							<label>14022</label>
+							<onclick>ActivateWindow(Videos,Root)</onclick>
+							<icon>folder2.png</icon>
+							<thumb>-</thumb>
+							<visible>Library.HasContent(Video) + Container(9000).HasFocus(2)</visible>
+						</item>
+						<item>
+							<label>24001</label>
+							<onclick>ActivateWindow(Videos,Addons,return)</onclick>
+							<icon>threedcube.png</icon>
+							<thumb>-</thumb>
+							<visible>Container(9000).HasFocus(2)</visible>
+						</item>
+
+					<!-- HOME SUBMENU MOVIES -->
+						<item>
+							<label>16101</label>
+							<onclick>ActivateWindow(Videos,special://skin/extras/Unwatched.xsp,return)</onclick>
+							<icon>weathereye.png</icon>
+							<thumb>-</thumb>
+							<visible>Container(9000).HasFocus(5)</visible>
+						</item>
+						<item>
+							<label>575</label>
+							<onclick>ActivateWindow(Videos,library://video/inprogressshows.xml,return)</onclick>
+							<icon>youtube_downloader.png</icon>
+							<thumb>-</thumb>
+							<visible>Container(9000).HasFocus(5)</visible>
+						</item>
+						<item>
+							<label>31328</label>
+							<label>Recently Added</label>
+							<onclick>ActivateWindow(Videos,RecentlyAddedMovies,return)</onclick>
+							<icon>addfile.png</icon>
+							<thumb>-</thumb>
+							<visible>Container(9000).HasFocus(5)</visible>
+						</item>
+						<item>
+							<label>20434</label>
+							<onclick>ActivateWindow(Videos,MovieSets,return)</onclick>
+							<icon>-</icon>
+							<thumb>-</thumb>
+							<visible>Library.HasContent(MovieSets) + Container(9000).HasFocus(5)</visible>
+						</item>
+						<item>
+							<label>135</label>
+							<onclick>ActivateWindow(Videos,MovieGenres,return)</onclick>
+							<icon>funnyjokes.png</icon>
+							<thumb>-</thumb>
+							<visible>Container(9000).HasFocus(5)</visible>
+						</item>
+						<item>
+							<label>20459</label>
+							<onclick>ActivateWindow(Videos,MovieTags,return)</onclick>
+							<icon>tag.png</icon>
+							<thumb>-</thumb>
+							<visible>Container(9000).HasFocus(5)</visible>
+						</item>
+					<!-- HOME SUBMENU TV SHOWS -->
+						<item>
+							<label>369</label>
+							<onclick>ActivateWindow(Videos,TVShowTitles,return)</onclick>
+							<icon>matchstv.png</icon>
+							<thumb>-</thumb>
+							<visible>Container(9000).HasFocus(6) +!System.HasAddon(script.tv.show.next.aired)</visible>
+						</item>
+						<item>
+							<label>$ADDON[script.tv.show.next.aired 32019]</label>
+							<onclick>RunAddon(script.tv.show.next.aired,return)</onclick>
+							<icon>matchstv.png</icon>
+							<thumb>-</thumb>
+							<visible>Container(9000).HasFocus(6) + System.HasAddon(script.tv.show.next.aired)</visible>
+						</item>
+						<item>
+							<label>575</label>
+							<onclick>ActivateWindow(Videos,library://video/inprogressshows.xml,return)</onclick>
+							<icon>youtube_downloader.png</icon>
+							<thumb>-</thumb>
+							<visible>Container(9000).HasFocus(6)</visible>
+						</item>
+						<item>
+							<label>31328</label>
+							<onclick>ActivateWindow(Videos,RecentlyAddedEpisodes,return)</onclick>
+							<icon>addfile.png</icon>
+							<thumb>-</thumb>
+							<visible>Container(9000).HasFocus(6)</visible>
+						</item>
+						<item>
+							<label>135</label>
+							<onclick>ActivateWindow(Videos,TVShowGenres,return)</onclick>
+							<icon>funnyjokes.png</icon>
+							<thumb>-</thumb>
+							<visible>Container(9000).HasFocus(6)</visible>
+						</item>
+						<item>
+							<label>652</label>
+							<onclick>ActivateWindow(Videos,TvShowYears,return)</onclick>
+							<icon>calendar.png</icon>
+							<thumb>-</thumb>
+							<visible>Container(9000).HasFocus(6)</visible>
+						</item>
+						<item>
+							<label>344</label>
+							<onclick>ActivateWindow(Videos,TvShowActors,return)</onclick>
+							<icon>contacts4.png</icon>
+							<thumb>-</thumb>
+							<visible>Container(9000).HasFocus(6)</visible>
+						</item>
+					<!-- HOME SUBMENU MUSIC -->
+						<item>
+							<label>133</label>
+							<onclick>ActivateWindow(MusicLibrary,Artists,return)</onclick>
+							<icon>contacts4.png</icon>
+							<thumb>-</thumb>
+							<visible>Container(9000).HasFocus(3)</visible>
+						</item>
+						<item>
+							<label>132</label>
+							<onclick>ActivateWindow(MusicLibrary,Albums,return)</onclick>
+							<icon>albumart.png</icon>
+							<thumb>-</thumb>
+							<visible>Container(9000).HasFocus(3)</visible>
+						</item>
+						<item>
+							<label>134</label>
+							<onclick>ActivateWindow(MusicLibrary,Songs,return)</onclick>
+							<icon>music4.png</icon>
+							<thumb>-</thumb>
+							<visible>Container(9000).HasFocus(3)</visible>
+						</item>
+						<item>
+							<label>744</label>
+							<onclick>ActivateWindow(MusicFiles)</onclick>
+							<icon>blankfile.png</icon>
+							<thumb>-</thumb>
+							<visible>Container(9000).HasFocus(3)</visible>
+						</item>
+						<item>
+							<label>14022</label>
+							<onclick>ActivateWindow(MusicLibrary,root)</onclick>
+							<icon>folder2.png</icon>
+							<thumb>-</thumb>
+							<visible>Container(9000).HasFocus(3)</visible>
+						</item>
+						<item>
+							<label>24001</label>
+							<onclick>ActivateWindow(MusicLibrary,Addons,return)</onclick>
+							<icon>threedcube.png</icon>
+							<thumb>-</thumb>
+							<visible>Container(9000).HasFocus(3)</visible>
+						</item>
+					<!-- HOME SUBMENU PROGRAMS -->
+					<item>
+						<label>20244</label>
+						<onclick>ActivateWindow(Programs)</onclick>
+						<icon>grid.png</icon>
+						<thumb>-</thumb>
+						<visible>Container(9000).HasFocus(1) + System.Platform(Android)</visible>
+					</item>
+					<item>
+						<label>15016</label>
+						<onclick>SetProperty(Progams.Games,True,home)</onclick>
+						<onclick>RunAddon(plugin.program.advanced.launcher)</onclick>
+						<icon>gamecontroller.png</icon>
+						<thumb>-</thumb>
+						<visible>Container(9000).HasFocus(1) + System.HasAddon(plugin.program.advanced.launcher)</visible>
+					</item>
+					<item>
+						<label>1037</label>
+						<onclick>ActivateWindow(Videos,Addons,return)</onclick>
+						<icon>threedcube.png</icon>
+						<thumb>-</thumb>
+						<visible>Container(9000).HasFocus(1)</visible>
+					</item>
+					<item>
+						<label>1038</label>
+						<onclick condition="Library.HasContent(music)">ActivateWindow(Musiclibrary,Addons,return)</onclick>
+						<onclick condition="!Library.HasContent(music)">ActivateWindow(Musicfiles,Addons,return)</onclick>
+						<icon>threedcube.png</icon>
+						<thumb>-</thumb>
+						<visible>Container(9000).HasFocus(1)</visible>
+					</item>
+					<item>
+						<label>1039</label>
+						<onclick>ActivateWindow(Pictures,Addons,return)</onclick>
+						<icon>threedcube.png</icon>
+						<thumb>-</thumb>
+						<visible>Container(9000).HasFocus(1)</visible>
+					</item>
+				<!-- HOME SUBMENU SETTINGS -->
+					<item>
+						<label>20077</label>
+						<onclick>ActivateWindow(SkinSettings)</onclick>
+						<icon>personalize.png</icon>
+						<thumb>-</thumb>
+						<visible>Container(9000).HasFocus(11)</visible>
+					</item>
+					<item>
+						<label>7</label>
+						<onclick>ActivateWindow(FileManager)</onclick>
+						<icon>file_manager.png</icon>
+						<thumb>-</thumb>
+						<visible>Container(9000).HasFocus(11)</visible>
+					</item>
+					<item>
+						<label>24001</label>
+						<onclick>ActivateWindow(AddonBrowser)</onclick>
+						<icon>threedcube.png</icon>
+						<thumb>-</thumb>
+						<visible>Container(9000).HasFocus(11)</visible>
+					</item>
+					<item>
+						<label>13200</label>
+						<onclick>ActivateWindow(Profiles)</onclick>
+						<icon>user2.png</icon>
+						<thumb>-</thumb>
+						<visible>Container(9000).HasFocus(11)</visible>
+					</item>
+					<item>
+						<label>130</label>
+						<onclick>ActivateWindow(SystemInfo)</onclick>
+						<icon>info.png</icon>
+						<thumb>-</thumb>
+						<visible>Container(9000).HasFocus(11)</visible>
+					</item>
+				<!-- HOME SUBMENU POWER -->
+					<item>
+						<label>13009</label>
+						<onclick>Quit</onclick>
+						<icon>circlex.png</icon>
+						<thumb>-</thumb>
+						<visible>Container(9000).HasFocus(12)</visible>
+					</item>
+					<item>
+						<label>20126</label>
+						<onclick>System.LogOff</onclick>
+						<icon>msecure.png</icon>
+						<thumb>-</thumb>
+						<visible>Container(9000).HasFocus(12)</visible>
+					</item>
+					<item>
+						<label>$LOCALIZE[19040]</label>
+						<onclick>AlarmClock(shutdowntimer,Shutdown())</onclick>
+						<icon>timer.png</icon>
+						<thumb>-</thumb>
+						<visible>System.CanPowerDown | System.CanSuspend | System.CanHibernate</visible>
+						<visible>!System.HasAlarm(shutdowntimer)</visible>
+						<visible>Container(9000).HasFocus(12)</visible>
+					</item>
+					<item>
+						<label>$LOCALIZE[222]</label>
+						<onclick>CancelAlarm(shutdowntimer)</onclick>
+						<icon>-</icon>
+						<thumb>-</thumb>
+						<visible>System.HasAlarm(shutdowntimer)</visible>
+						<visible>Container(9000).HasFocus(12)</visible>
+					</item>
+					<item>
+						<label>13013</label>
+						<onclick>Reset()</onclick>
+						<icon>reboot.png</icon>
+						<thumb>-</thumb>
+						<visible>Container(9000).HasFocus(12)</visible>
+					</item>
+					<item>
+						<label>13011</label>
+						<onclick>Suspend()</onclick>
+						<icon>reboot_recovery.png</icon>
+						<thumb>-</thumb>
+						<visible>Container(9000).HasFocus(12)</visible>
+					</item>
+					<item>
+						<label>13010</label>
+						<onclick>Hibernate()</onclick>
+						<icon>nightfilter.png</icon>
+						<thumb>-</thumb>
+						<visible>Container(9000).HasFocus(12)</visible>
+					</item>
+					<item>
+						<label>$LOCALIZE[13016]</label>
+						<onclick>Powerdown()</onclick>
+						<icon>power.png</icon>
+						<thumb>-</thumb>
+						<visible>Container(9000).HasFocus(12)</visible>
+					</item>
+				<!-- HOME SUBMENU PICTURES -->
+					<!--<item>
+						<label>24001</label>
+						<onclick>ActivateWindow(Pictures,Addons,return)</onclick>
+						<icon>-</icon>
+						<thumb>-</thumb>
+						<visible>Container(9000).HasFocus(4)</visible>
+					</item>-->
+
+			</content>
+
+		</control>
+
+
+<!-- RSS CONTROL BAR -->
+
+<control type="group">
+	<top>0</top>
+	<left>0</left>
+	<width>1920</width>
+	<height>50</height>
+
+		<control type="rss">
+			<description>RSS Feed</description>
+			<top>5</top>
+			<right>0</right>
+			<width>1920</width>
+			<height>45</height>
+			<font>Small</font>
+			<urlset>1</urlset>
+			<titlecolor>White</titlecolor>
+			<headlinecolor>White</headlinecolor>
+			<textcolor>White</textcolor>
+			<animation type="WindowOpen" reversible="false">
+  				<effect type="fade" start="0" end="100" time="600" />
+			</animation>
+			<animation type="WindowClose" reversible="false">
+  				<effect type="fade" start="100" end="0" time="600" />
+			</animation>
+		</control>
+</control>
+
+<!-- DATE AND TIME CONTROL -->
+
+<control type="group">
+	<top>890</top>
+	<right>70</right>
+	<height>200</height>
+			<animation type="WindowClose" reversible="false">
+  				<effect type="fade" start="100" end="0" time="600" />
+			</animation>
+
+	<!--<control type="image">
+		<top>30</top>
+		<right>230</right>
+		<width>70</width>
+		<height>70</height>
+		<colordiffuse>80FFFFFF</colordiffuse>
+		<texture>muzei_ic_config_freq_dark.png</texture>
+	</control>-->
+
+	<control type="label">
+		<top>25</top>
+		<align>right</align>
+		<font>Home-Time</font>
+		<label>$INFO[System.Time]</label>
+		<textcolor>CCFFFFFF</textcolor>
+					<animation type="WindowOpen" reversible="false">
+						<effect type="slide" start="100,0" end="0,0" time="400" tween="quadratic" easing="out" />
+					</animation>
+	</control>
+
+	<control type="label">
+		<font>Home-Date</font>
+		<top>85</top>
+		<align>right</align>
+		<textcolor>BBFFFFFF</textcolor>
+		<label>$INFO[System.Date(DDD)], $INFO[System.Date(dd)] $INFO[System.Date(MMM)] $INFO[System.Date(yyyy)]</label>
+			<animation type="WindowOpen" reversible="false">
+				<effect type="slide" start="0,100" end="0,0" delay="300" time="300" tween="quadratic" easing="out" />
+			</animation>
+	</control>
+
+
+</control>
+
+<!-- KODI LOGO DISPLAY CONTROL -->
+
+<control type="group">
+	<top>770</top>
+	<left>50</left>
+	<height>300</height>
+			<animation type="WindowClose" reversible="false">
+  				<effect type="fade" start="100" end="0" time="600" />
+			</animation>
+
+	<control type="image">
+		<top>123</top>
+		<left>-10</left>
+		<texture>icons/Other/300px-Side-by-side-light-transparent.png</texture>
+		<colordiffuse>BBFFFFFF</colordiffuse>
+		<width>300</width>
+		<height>115</height>
+					<animation type="WindowOpen" reversible="false">
+						<effect type="fade" start="0" end="100" delay="600" time="1000" />
+					</animation>
+	</control>
+
+	<control type="image">
+		<left>120</left>
+		<top>83</top>
+		<texture>icons/Other/300px-Thumbnail-symbol-transparent.png</texture>
+		<width>300</width>
+		<height>300</height>
+		<colordiffuse>45FFFFFF</colordiffuse>
+					<animation type="WindowOpen" reversible="false">
+						<effect type="fade" start="0" end="100" delay="1400" time="2000" />
+					</animation>
+	</control>
+</control>
+
+<!-- User Profile Display Control -->
+
+<control type="group">
+	<!--<visible>System.IsLoggedOn</visible>-->
+	<visible>!Player.HasMedia</visible>
+
+			<animation type="WindowClose" reversible="false">
+  				<effect type="fade" start="0" end="0" time="600" />
+			</animation>
+
+	<control type="image">
+		<posy>40</posy>
+		<posx>45</posx>
+		<width>100</width>
+		<height>100</height>
+		<colordiffuse>80FFFFFF</colordiffuse>
+		<texture fallback="special://skin/media/icons/Other/user.png">$INFO[System.ProfileThumb]</texture>
+		<animation type="WindowOpen" reversible="false">
+  			<effect type="slide" start="0,-100" end="0,0" time="700" delay="1500" tween="quadratic" easing="out" />
+ 			<effect type="fade" start="0" end="100" delay="1500" time="705" />
+ 			<effect type="fade" start="100" end="0" delay="5800" time="1100" />
+		</animation>
+
+	</control>
+
+	<control type="label">
+		<posy>50</posy>
+		<posx>158</posx>
+		<font>Large</font>
+		<textcolor>CCFFFFFF</textcolor>
+		<label>$INFO[System.ProfileName]</label>
+		<animation type="WindowOpen" reversible="false"> <!-- 200 sec gap -->
+			<effect type="slide" start="-100,0" end="0,0" delay="2400" time="1100" tween="quadratic" easing="out" />
+ 			<effect type="fade" start="50" end="100" delay="2400" time="1105" />
+ 			<effect type="fade" start="100" end="0" delay="5800" time="1100" />
+		</animation>
+
+	</control>
+
+	<control type="label">
+		<posy>90</posy>
+		<posx>195</posx>
+		<font>ExtraSmall</font>
+		<label>Logged In</label>
+		<textcolor>BBFFFFFF</textcolor>
+		<animation type="WindowOpen" reversible="false"><!-- -100 sec gap -->
+ 			<effect type="slide" start="-100,0" end="0,0" delay="3400" time="600" tween="cubic" easing="out" />
+ 			<effect type="fade" start="0" end="100" delay="3400" time="605" />
+ 			<effect type="fade" start="100" end="0" delay="5800" time="1100" />
+		</animation>
+	</control>
+
+	<control type="image">
+		<posy>118</posy>
+		<posx>165</posx>
+		<width>16</width>
+		<height>16</height>
+		<colordiffuse>AAFFFFFF</colordiffuse>
+		<texture>icons/Other/locked59small.png</texture>
+		<animation type="WindowOpen" reversible="false"> <!-- -200 sec gap -->
+ 			<effect type="slide" start="-50,0" end="0,0" delay="3800" time="800" tween="bounce" easing="out" />
+ 			<effect type="fade" start="0" end="100" delay="3800" time="605" />
+ 			<effect type="fade" start="100" end="0" delay="5800" time="1100" />
+		</animation>
+	</control>
+
+</control>
+
+<!-- WEATHER DISPLAY CONTROL -->
+<control type="group">
+	<posy>0</posy>
+	<right>158</right>
+	<width>300</width>
+		 			<animation type="WindowOpen" reversible="false">
+		 				<effect type="fade" start="0" end="100" time="600" />
+		 			</animation>
+			<animation type="WindowClose" reversible="false">
+  				<effect type="fade" start="100" end="0" time="600" />
+			</animation>
+
+	<control type="label">
+		<posy>55</posy>
+		<font>Home-Location</font>
+		<align>right</align>
+		<label>$INFO[Weather.Location]</label>
+	</control>
+	<control type="label">
+		<posy>90</posy>
+		<align>right</align>
+		<font>ExtraSmall</font>
+		<label>$INFO[Weather.Conditions] $INFO[Weather.Temperature]</label>
+	</control>
+</control>
+	<control type="image">
+		<posy>40</posy>
+		<right>45</right>
+		<width>100</width>
+		<height>100</height>
+		<texture>$INFO[Window(Weather).Property(Current.ConditionIcon)]</texture>
+		<visible>!Skin.HasSetting(weather.usethemeicons)</visible>
+			<animation type="WindowOpen" reversible="false">
+		 		<effect type="fade" start="0" end="100" time="600" />
+		 	</animation>
+			<animation type="WindowClose" reversible="false">
+  				<effect type="fade" start="100" end="0" time="600" />
+			</animation>
+	</control>
+
+	<control type="image">
+		<description>Theme Weather Icon</description>
+		<posy>40</posy>
+		<right>45</right>
+		<width>100</width>
+		<height>100</height>
+		<texture>$INFO[Window(Weather).Property(Current.FanartCode),icons/Weather/,.png]</texture>
+			<visible>Skin.HasSetting(weather.usethemeicons)</visible>
+			<animation type="WindowOpen" reversible="false">
+		 		<effect type="fade" start="0" end="100" time="600" />
+		 	</animation>
+			<animation type="WindowClose" reversible="false">
+  				<effect type="fade" start="100" end="0" time="600" />
+			</animation>
+	</control>
+
+<!-- END CONTROLS -->
+
+	</controls>
+
+</window>

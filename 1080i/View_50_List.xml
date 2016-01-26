@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Foundation -->
+<includes>
+
+	<include name="View_50_List">
+	
+		<description>List View (id=50)</description>
+
+		<!-- FILE LIST -->
+
+		<control type="list" id="50">
+			<posx>450</posx>
+			<posy>180</posy>
+			<width>850</width>
+			<height>800</height>
+			<onleft>60</onleft>
+			<onright>9000</onright>
+			<focusposition>3</focusposition>
+			<onup>50</onup>
+			<ondown>50</ondown>
+			<pagecontrol>60</pagecontrol>
+			<viewtype label="535">list</viewtype>
+			<scrolltime>200</scrolltime>
+
+			<animation type="WindowOpen" reversible="false">
+  				<effect type="slide" start="0,500" end="0,0" tween="back" easing="out" time="600" />
+			</animation>
+
+			<animation type="WindowClose" reversible="false">
+  				<effect type="slide" start="0,0" end="0,500" tween="back" easing="in" time="600" />
+			</animation>
+
+
+			<animation type="Conditional" condition="ControlGroup(9000).HasFocus()">
+				<effect type="fade" start="100" end="50" time="200" />
+			</animation>
+
+			<itemlayout width="850" height="80">
+
+				<control type="label">
+					<aligny>center</aligny>
+					<posx>0</posx>
+					<width>675</width>
+					<font>File-List</font>
+					<label>$INFO[ListItem.Label]</label>
+					<textcolor>80FFFFFF</textcolor>
+				</control>
+
+				<control type="label">
+					<aligny>center</aligny>
+					<width>700</width>
+					<posx>0</posx>
+					<posy>30</posy>
+					<align>left</align>
+					<font>Settings-Cat-Sub</font>
+					<visible>Container.Content(movies) | Container.Content(tvshows)</visible>
+					<label>$INFO[ListItem.Genre]</label>
+					<textcolor>40FFFFFF</textcolor>
+				</control>
+
+				<control type="label">
+					<aligny>center</aligny>
+					<width>700</width>
+					<posx>0</posx>
+					<posy>30</posy>
+					<align>left</align>
+					<font>Settings-Cat-Sub</font>
+					<visible>Container.Content(seasons)</visible>
+					<label>$INFO[ListItem.Year]</label>
+					<textcolor>40FFFFFF</textcolor>
+				</control>
+
+				<control type="label">
+					<aligny>center</aligny>
+					<width>700</width>
+					<posx>0</posx>
+					<posy>30</posy>
+					<align>left</align>
+					<font>Settings-Cat-Sub</font>
+					<visible>Container.Content(episodes)</visible>
+					<label>$INFO[ListItem.Premiered, First Aired ]</label>
+					<textcolor>40FFFFFF</textcolor>
+				</control>
+
+				<control type="label">
+					<aligny>center</aligny>
+					<width>150</width>
+					<posx>775</posx>
+					<align>right</align>
+					<font>Settings-Cat-Sub</font>
+					<label>$INFO[ListItem.Label2]</label>
+					<textcolor>40FFFFFF</textcolor>
+				</control>
+
+						<control type="image">
+							<posx>800</posx>
+							<width>48</width>
+							<height>48</height>
+							<aligny>center</aligny>
+							<aspectratio>keep</aspectratio>
+							<texture colordiffuse="40FFFFFF">$INFO[ListItem.Overlay]</texture>
+							<posy>11</posy>
+						</control>
+
+				<control type="label">
+					<aligny>center</aligny>
+					<width>150</width>
+					<posx>775</posx>
+					<align>right</align>
+					<font>Settings-Cat-Sub</font>
+					<visible>Container.Content(seasons)</visible>
+					<label>$INFO[ListItem.Property(TotalEpisodes),, $LOCALIZE[20453]]</label>
+					<textcolor>40FFFFFF</textcolor>
+				</control>
+
+
+			</itemlayout>
+
+			<focusedlayout width="850" height="80">
+
+				<control type="group">
+
+							<animation type="Focus" reversible="false">
+								<effect type="slide" start="0,0" end="-15,0" tween="back" easing="out" time="400" />
+							</animation>
+
+				<control type="label">
+					<aligny>center</aligny>
+					<posx>0</posx>
+					<width>675</width>
+					<font>File-List</font>
+					<textcolor>DDFFFFFF</textcolor>
+					<label>$INFO[ListItem.Label]</label>
+				</control>
+
+				<control type="label">
+					<aligny>center</aligny>
+					<width>700</width>
+					<posx>0</posx>
+					<posy>30</posy>
+					<align>left</align>
+					<font>Settings-Cat-Sub</font>
+					<visible>Container.Content(movies) | Container.Content(tvshows)</visible>
+					<label>$INFO[ListItem.Genre]</label>
+					<textcolor>80FFFFFF</textcolor>
+				</control>
+
+				<control type="label">
+					<aligny>center</aligny>
+					<width>700</width>
+					<posx>0</posx>
+					<posy>30</posy>
+					<align>left</align>
+					<font>Settings-Cat-Sub</font>
+					<visible>Container.Content(seasons)</visible>
+					<label>$INFO[ListItem.Year]</label>
+					<textcolor>80FFFFFF</textcolor>
+				</control>
+
+				<control type="label">
+					<aligny>center</aligny>
+					<width>700</width>
+					<posx>0</posx>
+					<posy>30</posy>
+					<align>left</align>
+					<font>Settings-Cat-Sub</font>
+					<visible>Container.Content(episodes)</visible>
+					<label>$INFO[ListItem.Premiered, First Aired ]</label>
+					<textcolor>80FFFFFF</textcolor>
+				</control>
+
+				<control type="label">
+					<aligny>center</aligny>
+					<width>150</width>
+					<posx>775</posx>
+					<align>right</align>
+					<font>Settings-Cat-Sub</font>
+					<textcolor>BBFFFFFF</textcolor>
+					<label>$INFO[ListItem.Label2]</label>
+				</control>
+
+						<control type="image">
+							<posx>800</posx>
+							<width>48</width>
+							<height>48</height>
+							<posy>11</posy>
+							<aspectratio>keep</aspectratio>
+							<texture colordiffuse="BBFFFFFF">$INFO[ListItem.Overlay]</texture>
+						</control>
+
+				<control type="label">
+					<aligny>center</aligny>
+					<width>150</width>
+					<posx>775</posx>
+					<align>right</align>
+					<font>Settings-Cat-Sub</font>
+					<visible>Container.Content(seasons)</visible>
+					<label>$INFO[ListItem.Property(TotalEpisodes),, $LOCALIZE[20453]]</label>
+					<textcolor>BBFFFFFF</textcolor>
+				</control>
+
+			</control>
+
+			</focusedlayout>
+
+		</control>
+
+		<!-- FILE ICON -->
+
+		<control type="image">
+			<posx>1380</posx>
+			<posy>210</posy>
+			<width>480</width>
+			<height>660</height>
+			<fadetime>100</fadetime>
+			<aspectratio align="left" aligny="center">keep</aspectratio>
+			<texture fallback="DefaultAddonNone.png">$INFO[ListItem.Icon]</texture>
+			<bordertexture border="5">other_textures/white-back.png</bordertexture>
+			<bordersize>12</bordersize>
+			<visible>!IsEmpty(ListItem.Icon)</visible>
+
+			<animation type="WindowOpen" reversible="false">
+  				<effect type="slide" start="0,500" end="0,0" tween="back" easing="out" time="600" />
+			</animation>
+
+			<animation type="WindowClose" reversible="false">
+  				<effect type="slide" start="0,0" end="0,500" tween="back" easing="in" time="600" />
+			</animation>
+		</control>
+
+		<!-- SCROLLBAR -->
+
+		<control type="scrollbar" id="60">
+			<posx>400</posx>
+		      <posy>200</posy>
+		      <width>1</width>
+		      <height>780</height>
+		      <visible>true</visible>
+		      <texturesliderbackground>other_textures/black-back.png</texturesliderbackground>
+		      <texturesliderbar>other_textures/white-back.png</texturesliderbar>
+		      <texturesliderbarfocus></texturesliderbarfocus>
+		      <textureslidernib></textureslidernib>
+		      <textureslidernibfocus></textureslidernibfocus>
+		      <pulseonselect></pulseonselect>
+		      <orientation>vertical</orientation>
+		      <showonepage>true</showonepage>
+			<onleft>9000</onleft>
+			<onright>50</onright>
+			<visible allowhiddenfocus="true">Control.HasFocus(60) | Control.HasFocus(50)</visible>
+			<animation effect="fade" start="0" end="100" time="400" condition="Control.HasFocus(60) | Control.HasFocus(50)">Conditional</animation>
+		</control>
+
+	</include>
+
+</includes>

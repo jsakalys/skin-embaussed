@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Foundation -->
+<fonts>
+	<fontset id="default" unicode="true">
+
+<!-- Header -->
+
+		<font>
+			<name>Header-Main</name>
+			<filename>Lato-Black.ttf</filename>
+			<size>48</size>
+		</font>
+
+<!-- HOME -->
+
+		<font>
+			<name>Home</name>
+			<filename>Lato-Black.ttf</filename>
+			<size>52</size>
+		</font>
+
+		<font>
+			<name>Home-Time</name>
+			<filename>Lato-Heavy.ttf</filename>
+			<size>58</size>
+		</font>
+
+		<font>
+			<name>Home-Date</name>
+			<filename>Dosis-Regular.ttf</filename>
+			<size>48</size>
+		</font>
+
+		<font>
+			<name>Home-Location</name>
+			<filename>Lato-Bold.ttf</filename>
+			<size>36</size>
+		</font>
+
+<!-- SETTINGS -->
+		<font>
+			<name>Settings-Main</name>
+			<filename>Dosis-SemiBold.ttf</filename>
+			<size>30</size>
+		</font>
+
+		<font>
+			<name>Settings-Sub</name>
+			<filename>Dosis-Medium.ttf</filename>
+			<size>20</size>
+			<style>uppercase</style>
+		</font>
+
+<!-- SETTINGS CATEGORY -->
+		<font>
+			<name>Settings-Cat-Main</name>
+			<filename>Dosis-Medium.ttf</filename>
+			<size>24</size>
+			<style></style>
+		</font>
+
+		<font>
+			<name>Settings-Cat-Sub</name>
+			<filename>Dosis-Medium.ttf</filename>
+			<size>20</size>
+			<style>uppercase</style>
+		</font>
+
+<!-- WEATHER -->
+		<font>
+			<name>Weather-Temp</name>
+			<filename>Lato-Bold.ttf</filename>
+			<size>96</size>
+		</font>
+<!-- VIDEO NAV -->
+		<font>
+			<name>File-List</name>
+			<filename>Lato-Bold.ttf</filename>
+			<size>30</size>
+		</font>
+<!-- GENERIC -->
+		
+		<font>
+			<name>Large</name>
+			<filename>Dosis-ExtraBold.ttf</filename>
+			<size>48</size>
+		</font>
+		
+		<font>
+			<name>Medium</name>
+			<filename>Dosis-SemiBold.ttf</filename>
+			<size>28</size>
+		</font>
+		
+		<font>
+			<name>Small</name>
+			<filename>Dosis-Medium.ttf</filename>
+			<size>24</size>
+		</font>
+
+		<font>
+			<name>ExtraSmall</name>
+			<filename>Lato-Regular.ttf</filename>
+			<size>20</size>
+		</font>
+
+		<!-- Required for system -->
+
+		<font>
+			<name>font13</name>
+			<filename>Arial.ttf</filename>
+			<size>30</size>
+		</font>
+
+	</fontset>
+</fonts>

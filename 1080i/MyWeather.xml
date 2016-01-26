@@ -1,0 +1,616 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Foundation -->
+<window id="2600">
+	<defaultcontrol always="true">4</defaultcontrol>
+	<allowoverlay>yes</allowoverlay>
+
+	<controls>
+
+
+		<!-- Note: Add to skin settings: Skin.ToggleSetting(weather.usethemeicons) -->
+
+<control type="image">
+	<width>1920</width>
+	<width>1080</width>
+	<texture>backgrounds/abstract.jpg</texture>
+</control>
+
+		<include>GlobalBackground</include>
+
+<control type="group">
+	<left>150</left>
+    <top>150</top>
+    <width>1580</width>
+    <height>900</height>
+    <onleft>9000</onleft>
+    <onright>9000</onright>
+    <onup>9000</onup>
+    <ondown>9000</ondown>
+
+        <animation type="WindowOpen" reversible="false">
+  			<effect type="slide" start="0,1000" end="0,0" tween="back" easing="out" time="600" />
+		</animation>
+
+		<animation type="WindowClose" reversible="false">
+  			<effect type="slide" start="0,0" end="0,1000" tween="back" easing="in" time="600" />
+		</animation>
+
+<!-- CURRENT CONDITIONS -->
+	<control type="group"> 
+		<posx>87</posx>
+		<posy>100</posy>
+		<height>400</height>
+
+			<control type="label">
+				<description>Weather Provider</description>
+				<posx>0</posx>
+				<posy>0</posy>
+				<width>316</width>
+				<label>$INFO[Window(Weather).Property(WeatherProvider)]</label>
+				<font>File-List</font>
+			</control>
+
+			<control type="button" id="4">
+				<description>Settings</description>
+				<posx>274</posx>
+				<posy>24</posy>
+				<width>24</width>
+				<height>24</height>
+				<textcolor>00FFFFFF</textcolor> <!-- Fixes bug where label shows -->
+				<focusedcolor>00FFFFFF</focusedcolor>
+				<texturenofocus colordiffuse="80FFFFFF">icons/Other/gear39.png</texturenofocus>
+				<texturefocus colordiffuse="DDFFFFFF">icons/Other/gear39.png</texturefocus>
+				<onclick>ActivateWindow(weathersettings)</onclick>
+				<onup>-</onup>
+				<ondown>-</ondown>
+				<onright>2</onright>
+				<onleft>3</onleft>
+			</control>
+
+			<control type="label">
+				<description>Last Updated</description>
+				<posx>374</posx>
+				<posy>0</posy>
+				<width>316</width>
+				<label>Last Updated:[CR]$INFO[Window(Weather).Property(Updated)]</label>
+				<font>ExtraSmall</font>
+			</control>
+
+			<control type="button" id="2">
+				<description>Refresh</description>
+				<posx>625</posx>
+				<posy>24</posy>
+				<width>24</width>
+				<height>24</height>
+				<textcolor>00FFFFFF</textcolor> <!-- Fixes bug where label shows -->
+				<focusedcolor>00FFFFFF</focusedcolor>
+				<texturenofocus colordiffuse="80FFFFFF">icons/Other/update26.png</texturenofocus>
+				<texturefocus colordiffuse="DDFFFFFF">icons/Other/update26.png</texturefocus>
+				<onclick>Weather.Refresh</onclick>
+				<onup>-</onup>
+				<ondown>-</ondown>
+				<onright>3</onright>
+				<onleft>4</onleft>
+			</control>
+
+			<control type="label">
+				<description>Location</description>
+				<posx>1050</posx>
+				<posy>0</posy>
+				<width>316</width>
+				<align>right</align>
+				<label>$INFO[Window(Weather).Property(Location)]</label>
+				<font>Home</font>
+				<textcolor>CCFFFFFF</textcolor>
+			</control>
+
+			<control type="spincontrolex" id="3">
+				<description>Location Select</description>
+				<posx>1125</posx>
+				<posy>24</posy>
+				<width>24</width>
+				<height>24</height>
+				<textcolor>00FFFFFF</textcolor> <!-- Fixes bug where label shows -->
+				<focusedcolor>00FFFFFF</focusedcolor>
+				<aligny>center</aligny>
+				<onright>4</onright>
+				<onleft>2</onleft>
+			</control>
+
+			<control type="label">
+				<description>Current Condition Spotlight</description>
+				<posx>1050</posx>
+				<posy>50</posy>
+				<width>316</width>
+				<label>$INFO[Window(Weather).Property(Current.Condition)]</label>
+				<font>File-List</font>
+				<align>right</align>
+				<textcolor>AAFFFFFF</textcolor>
+			</control>
+
+			<control type="label">
+				<description>Current Temperature Spotlight</description>
+				<posx>1050</posx>
+				<posy>175</posy>
+				<width>316</width>
+				<label>$INFO[Window(Weather).Property(Current.Temperature)]$INFO[System.TemperatureUnits]</label>
+				<font>Weather-Temp</font>
+				<align>right</align>
+				<textcolor>DDFFFFFF</textcolor>
+			</control>
+
+			<control type="image">
+				<description>Current Condition Icon</description>
+				<posx>1100</posx>
+				<posy>-100</posy>
+				<width>400</width>
+				<height>400</height>
+				<aspectratio>keep</aspectratio>
+				<texture>$INFO[Window(Weather).Property(Current.ConditionIcon)]</texture>
+				<visible>!Skin.HasSetting(weather.usethemeicons)</visible>
+			</control>
+
+			<control type="image">
+				<description>Current Condition Icon</description>
+				<posx>1150</posx>
+				<posy>25</posy>
+				<width>200</width>
+				<height>200</height>
+				<texture>$INFO[Window(Weather).Property(Current.FanartCode),icons/Weather/,.png]</texture>
+				<visible>Skin.HasSetting(weather.usethemeicons)</visible>
+			</control>
+
+
+			<control type="label">
+				<description>Current Condition</description>
+				<posx>0</posx>
+				<posy>100</posy>
+				<width>316</width>
+				<label>$LOCALIZE[33020]: $INFO[Window(Weather).Property(Current.Condition)]</label>
+				<font>Medium</font>
+				<textcolor>BBFFFFFF</textcolor>
+			</control>
+
+			<control type="label">
+				<description>Current Temp</description>
+				<posx>0</posx>
+				<posy>150</posy>
+				<width>316</width>
+				<label>$LOCALIZE[1375]: $INFO[Window(Weather).Property(Current.Temperature)]$INFO[System.TemperatureUnits]</label>
+				<font>Medium</font>
+				<textcolor>BBFFFFFF</textcolor>
+			</control>
+
+			<control type="label">
+				<description>Current Feels Like</description>
+				<posx>0</posx>
+				<posy>200</posy>
+				<width>316</width>
+				<label>$LOCALIZE[402]: $INFO[Window(Weather).Property(Current.FeelsLike)]$INFO[System.TemperatureUnits]</label>
+				<font>Medium</font>
+				<textcolor>BBFFFFFF</textcolor>
+			</control>
+
+			<control type="label">
+				<description>Current Humidity</description>
+				<posx>374</posx>
+				<posy>100</posy>
+				<width>316</width>
+				<label>$LOCALIZE[406]: $INFO[Window(Weather).Property(Current.Humidity)]</label>
+				<font>Medium</font>
+				<textcolor>BBFFFFFF</textcolor>
+			</control>
+
+			<control type="label">
+				<description>Current Dew Point</description>
+				<posx>374</posx>
+				<posy>150</posy>
+				<width>316</width>
+				<label>$LOCALIZE[405]: $INFO[Window(Weather).Property(Current.Dewpoint)]</label>
+				<font>Medium</font>
+				<textcolor>BBFFFFFF</textcolor>
+			</control>
+
+			<control type="label">
+				<description>Current Wind</description>
+				<posx>374</posx>
+				<posy>200</posy>
+				<width>316</width>
+				<label>$LOCALIZE[404]: $INFO[Window(Weather).Property(Current.Wind)]</label>
+				<font>Medium</font>
+				<textcolor>BBFFFFFF</textcolor>
+			</control>
+
+	</control>
+
+<!-- DAYS OF WEEK -->
+
+<control type="group">
+	<posy>450</posy>
+
+	<control type="group"> 
+		<posx>0</posx>			
+
+			<control type="image">
+				<width>316</width>
+				<height>400</height>
+				<texture border="22">other_textures/ContentPanel.pg</texture>
+			</control>
+
+			<control type="label">
+				<description>Day 0 Label</description>
+				<posx>0</posx>
+				<posy>-25</posy>
+				<width>316</width>
+				<label>$LOCALIZE[33006]</label>
+				<font>Medium</font>
+				<textcolor>AAFFFFFF</textcolor>
+				<align>center</align>
+			</control>
+
+			<control type="image">
+				<description>Day 0 Icon</description>
+				<posx>83</posx>
+				<posy>50</posy>
+				<height>150</height>
+				<width>150</width>
+				<texture>$INFO[Window(Weather).Property(Day0.OutlookIcon)]</texture>
+				<visible>!Skin.HasSetting(weather.usethemeicons)</visible>
+			</control>
+
+			<control type="image">
+				<description>Day 0 Theme Icon</description>
+				<posx>83</posx>
+				<posy>50</posy>
+				<height>150</height>
+				<width>150</width>
+				<texture>$INFO[Window(Weather).Property(Day0.FanartCode),icons/Weather/,.png]</texture>
+                <visible>Skin.HasSetting(weather.usethemeicons)</visible>
+			</control>
+
+
+			<control type="label">
+				<description>Day 0 Outlook</description>
+				<posx>0</posx>
+				<posy>200</posy>
+				<width>316</width>
+				<label>$INFO[Window(Weather).Property(Day0.Outlook)]</label>
+				<font>ExtraSmall</font>
+				<align>center</align>
+			</control>
+
+			<control type="label">
+				<description>Day 0 Temp</description>
+				<posx>0</posx>
+				<posy>275</posy>
+				<width>316</width>
+				<label>[B]$INFO[Window(Weather).Property(Day0.HighTemp)]$INFO[System.TemperatureUnits][/B][CR]$INFO[Window(Weather).Property(Day0.LowTemp)]$INFO[System.TemperatureUnits]</label>
+				<font>File-List</font>
+				<align>center</align>
+			</control>
+
+	</control>
+
+    <control type="group"> 
+		<posx>316</posx>			
+
+			<control type="image">
+				<width>316</width>
+				<height>400</height>
+				<texture border="22">other_textures/ContentPanel.pg</texture>
+			</control>
+
+			<control type="label">
+				<description>Day 1 Label</description>
+				<posx>0</posx>
+				<posy>-25</posy>
+				<width>316</width>
+				<label>$LOCALIZE[33007]</label>
+				<font>Medium</font>
+				<textcolor>AAFFFFFF</textcolor>
+				<align>center</align>
+			</control>
+
+			<control type="image">
+				<description>Day 1 Icon</description>
+				<posx>83</posx>
+				<posy>50</posy>
+				<height>150</height>
+				<width>150</width>
+				<texture>$INFO[Window(Weather).Property(Day1.OutlookIcon)]</texture>
+				<visible>!Skin.HasSetting(weather.usethemeicons)</visible>
+			</control>
+
+
+			<control type="image">
+				<description>Day 1 Theme Icon</description>
+				<posx>83</posx>
+				<posy>50</posy>
+				<height>150</height>
+				<width>150</width>
+				<texture>$INFO[Window(Weather).Property(Day1.FanartCode),icons/Weather/,.png]</texture>
+                <visible>Skin.HasSetting(weather.usethemeicons)</visible>
+			</control>
+
+
+			<control type="label">
+				<description>Day 1 Outlook</description>
+				<posx>0</posx>
+				<posy>200</posy>
+				<width>316</width>
+				<label>$INFO[Window(Weather).Property(Day1.Outlook)]</label>
+				<font>ExtraSmall</font>
+				<align>center</align>
+			</control>
+
+			<control type="label">
+				<description>Day 1 Temp</description>
+				<posx>0</posx>
+				<posy>275</posy>
+				<width>316</width>
+				<label>[B]$INFO[Window(Weather).Property(Day1.HighTemp)]$INFO[System.TemperatureUnits][/B][CR]$INFO[Window(Weather).Property(Day1.LowTemp)]$INFO[System.TemperatureUnits]</label>
+				<font>File-List</font>
+				<align>center</align>
+			</control>
+
+	</control>
+
+	<control type="group">
+		<posx>632</posx>
+
+			<control type="image">
+				<width>316</width>
+				<height>400</height>
+				<texture border="22">other_textures/ContentPanel.pg</texture>
+			</control>
+
+			<control type="label">
+				<description>Day 2 Label</description>
+				<posx>0</posx>
+				<posy>-25</posy>
+				<width>316</width>
+				<label>$INFO[Window(Weather).Property(Day2.Title)]</label>
+				<font>Medium</font>
+				<textcolor>AAFFFFFF</textcolor>
+				<align>center</align>
+			</control>
+
+			<control type="image">
+				<description>Day 2 Icon</description>
+				<posx>83</posx>
+				<posy>50</posy>
+				<height>150</height>
+				<width>150</width>
+				<texture>$INFO[Window(Weather).Property(Day2.OutlookIcon)]</texture>
+				<visible>!Skin.HasSetting(weather.usethemeicons)</visible>
+			</control>
+
+			<control type="image">
+				<description>Day 2 Theme Icon</description>
+				<posx>83</posx>
+				<posy>50</posy>
+				<height>150</height>
+				<width>150</width>
+				<texture>$INFO[Window(Weather).Property(Day1.FanartCode),icons/Weather/,.png]</texture>
+                <visible>Skin.HasSetting(weather.usethemeicons)</visible>
+			</control>
+
+
+
+			<control type="label">
+				<description>Day 2 Outlook</description>
+				<posx>0</posx>
+				<posy>200</posy>
+				<width>316</width>
+				<label>$INFO[Window(Weather).Property(Day2.Outlook)]</label>
+				<font>ExtraSmall</font>
+				<align>center</align>
+			</control>
+
+			<control type="label">
+				<description>Day 2 Temp</description>
+				<posx>0</posx>
+				<posy>275</posy>
+				<width>316</width>
+				<label>[B]$INFO[Window(Weather).Property(Day2.HighTemp)]$INFO[System.TemperatureUnits][/B][CR]$INFO[Window(Weather).Property(Day2.LowTemp)]$INFO[System.TemperatureUnits]</label>
+				<font>File-List</font>
+				<align>center</align>
+			</control>
+
+	</control>
+
+	<control type="group">
+		<posx>948</posx>
+
+			<control type="image">
+				<width>316</width>
+				<height>400</height>
+				<texture border="22">other_textures/ContentPanel.pg</texture>
+			</control>
+
+			<control type="label">
+				<description>Day 3 Label</description>
+				<posx>0</posx>
+				<posy>-25</posy>
+				<width>316</width>
+				<label>$INFO[Window(Weather).Property(Day3.Title)]</label>
+				<font>Medium</font>
+				<textcolor>AAFFFFFF</textcolor>
+				<align>center</align>
+			</control>
+
+			<control type="image">
+				<description>Day 3 Icon</description>
+				<posx>83</posx>
+				<posy>50</posy>
+				<height>150</height>
+				<width>150</width>
+				<texture>$INFO[Window(Weather).Property(Day3.OutlookIcon)]</texture>
+				<visible>!Skin.HasSetting(weather.usethemeicons)</visible>
+			</control>
+
+			<control type="image">
+				<description>Day 3 Theme Icon</description>
+				<posx>83</posx>
+				<posy>50</posy>
+				<height>150</height>
+				<width>150</width>
+				<texture>$INFO[Window(Weather).Property(Day3.FanartCode),icons/Weather/,.png]</texture>
+				<visible>Skin.HasSetting(weather.usethemeicons)</visible>
+			</control>
+
+
+			<control type="label">
+				<description>Day 3 Outlook</description>
+				<posx>0</posx>
+				<posy>200</posy>
+				<width>316</width>
+				<label>$INFO[Window(Weather).Property(Day3.Outlook)]</label>
+				<font>ExtraSmall</font>
+				<align>center</align>
+			</control>
+
+			<control type="label">
+				<description>Day 3 Temp</description>
+				<posx>0</posx>
+				<posy>275</posy>
+				<width>316</width>
+				<label>[B]$INFO[Window(Weather).Property(Day3.HighTemp)]$INFO[System.TemperatureUnits][/B][CR]$INFO[Window(Weather).Property(Day3.LowTemp)]$INFO[System.TemperatureUnits]</label>
+				<font>File-List</font>
+				<align>center</align>
+			</control>
+
+	</control>
+
+	<control type="group">
+		<posx>1264</posx>
+
+			<control type="image">
+				<width>316</width>
+				<height>400</height>
+				<texture border="22">other_textures/ContentPanel.pg</texture>
+			</control>
+
+			<control type="label">
+				<description>Day 4 Label</description>
+				<posx>0</posx>
+				<posy>-25</posy>
+				<width>316</width>
+				<label>$INFO[Window(Weather).Property(Day4.Title)]</label>
+				<font>Medium</font>
+				<textcolor>AAFFFFFF</textcolor>
+				<align>center</align>
+			</control>
+
+			<control type="image">
+				<description>Day 4 Icon</description>
+				<posx>83</posx>
+				<posy>50</posy>
+				<height>150</height>
+				<width>150</width>
+				<texture>$INFO[Window(Weather).Property(Day4.OutlookIcon)]</texture>
+				<visible>!Skin.HasSetting(weather.usethemeicons)</visible>
+			</control>
+
+			<control type="image">
+				<description>Day 4 Theme Icon</description>
+				<posx>83</posx>
+				<posy>50</posy>
+				<height>150</height>
+				<width>150</width>
+				<texture>$INFO[Window(Weather).Property(Day4.FanartCode),icons/Weather/,.png]</texture>
+				<visible>Skin.HasSetting(weather.usethemeicons)</visible>
+			</control>
+
+			<control type="label">
+				<description>Day 4 Outlook</description>
+				<posx>0</posx>
+				<posy>200</posy>
+				<width>316</width>
+				<label>$INFO[Window(Weather).Property(Day4.Outlook)]</label>
+				<font>ExtraSmall</font>
+				<align>center</align>
+			</control>
+
+			<control type="label">
+				<description>Day 4 Temp</description>
+				<posx>0</posx>
+				<posy>275</posy>
+				<width>316</width>
+				<label>[B]$INFO[Window(Weather).Property(Day4.HighTemp)]$INFO[System.TemperatureUnits][/B][CR]$INFO[Window(Weather).Property(Day4.LowTemp)]$INFO[System.TemperatureUnits]</label>
+				<font>File-List</font>
+				<align>center</align>
+			</control>
+
+	</control>
+</control>
+
+</control>
+
+
+<!-- HEADER WITH BREADCRUMB -->
+
+<control type="group">
+	
+			<animation type="WindowClose" reversible="false">
+  				<effect type="fade" start="100" end="0" time="600" />
+			</animation>
+
+
+	<control type="image">
+		<posy>40</posy>
+		<posx>45</posx>
+		<width>100</width>
+		<height>100</height>
+		<colordiffuse>80FFFFFF</colordiffuse>
+		<texture>icons/Other/300px-Thumbnail-symbol-transparent.png</texture>
+		<animation type="WindowOpen" reversible="false">
+  			<effect type="slide" start="0,-100" end="0,0" time="700" delay="500" tween="quadratic" easing="out" />
+ 			<effect type="fade" start="0" end="100" delay="500" time="705" />
+		</animation>
+
+	</control>
+
+	<control type="label">
+		<posy>50</posy>
+		<posx>158</posx>
+		<font>Header-Main</font>
+		<textcolor>CCFFFFFF</textcolor>
+		<label>$INFO[System.CurrentWindow]</label>
+		<animation type="WindowOpen" reversible="false"> <!-- 200 sec gap -->
+			<effect type="slide" start="-100,0" end="0,0" delay="1400" time="1100" tween="quadratic" easing="out" />
+ 			<effect type="fade" start="50" end="100" delay="1400" time="1105" />
+		</animation>
+
+	</control>
+
+	<control type="label">
+		<posy>90</posy>
+		<posx>195</posx>
+		<font>ExtraSmall</font>
+		<textcolor>BBFFFFFF</textcolor>
+		<label>$INFO[Weather.Location]</label>
+		<animation type="WindowOpen" reversible="false"><!-- -100 sec gap -->
+ 			<effect type="slide" start="-100,0" end="0,0" delay="2400" time="600" tween="cubic" easing="out" />
+ 			<effect type="fade" start="0" end="100" delay="2400" time="605" />
+		</animation>
+	</control>
+
+	<control type="image">
+		<posy>118</posy>
+		<posx>165</posx>
+		<width>16</width>
+		<height>16</height>
+		<colordiffuse>AAFFFFFF</colordiffuse>
+		<texture>icons/Other/rightarrow26.png</texture>
+		<animation type="WindowOpen" reversible="false"> <!-- -200 sec gap -->
+ 			<effect type="slide" start="-50,0" end="0,0" delay="2800" time="800" tween="circle" easing="out" />
+ 			<effect type="fade" start="0" end="100" delay="2800" time="605" />
+		</animation>
+	</control>
+
+</control>
+
+	</controls>
+
+</window>

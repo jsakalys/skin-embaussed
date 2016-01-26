@@ -1,0 +1,767 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Foundation -->
+<window id="12">
+	<defaultcontrol always="true">3</defaultcontrol>
+	<allowoverlay>yes</allowoverlay>
+	<controls>
+
+<control type="image">
+	<width>1920</width>
+	<width>1080</width>
+	<texture>backgrounds/bluebg.jpg</texture>
+</control>
+
+		<include>GlobalBackground</include>
+
+<control type="group" id="7800">
+			<animation type="WindowOpen" reversible="false">
+  				<effect type="slide" start="0,1000" end="0,0" tween="back" easing="out" time="600" />
+			</animation>
+
+			<animation type="WindowClose" reversible="false">
+  				<effect type="slide" start="0,0" end="0,1000" tween="back" easing="in" time="600" />
+			</animation>
+
+		<control type="grouplist" id="3">
+			<description>Button Area</description>
+			<posx>280</posx>
+			<posy>290</posy>
+			<width>300</width>
+			<height>560</height>
+			<itemgap>0</itemgap>
+			<onleft>3</onleft>
+			<onright>5</onright>
+			<onup>3</onup>
+			<ondown>3</ondown>
+			<orientation>vertical</orientation>
+		</control>
+
+		<!--<control type="label" id="2">
+			<posx>200</posx>
+			<posy>200</posy>
+		</control>-->
+
+		<!--<control type="label" id="6">
+			<posx>400</posx>
+			<posy>200</posy>
+		</control>-->
+
+		<control type="wraplist" id="5">
+			<description>Control Area</description>
+			<posx>570</posx>
+			<posy>300</posy>
+			<width>1150</width>
+			<height>550</height>
+			<itemgap>0</itemgap>
+			<onleft>3</onleft>
+			<onright>5</onright>
+			<onup>5</onup>
+			<ondown>5</ondown>
+			<pagecontrol>17</pagecontrol>
+			<orientation>vertical</orientation>
+		</control>
+
+		<control type="scrollbar" id="17">
+		      <description>My first scroll bar control</description>
+		      <posx>550</posx>
+		      <posy>315</posy>
+		      <width>5</width>
+		      <height>520</height>
+		      <visible>true</visible>
+		      <texturesliderbackground>other_textures/black-back.png</texturesliderbackground>
+		      <texturesliderbar>other_textures/white-back.png</texturesliderbar>
+		      <texturesliderbarfocus></texturesliderbarfocus>
+		      <textureslidernib></textureslidernib>
+		      <textureslidernibfocus></textureslidernibfocus>
+		      <pulseonselect></pulseonselect>
+		      <orientation>vertical</orientation>
+		      <showonepage>true</showonepage>
+		      <onup>5</onup>
+		      <ondown>5</ondown>
+		      <onleft>5</onleft>
+		      <onright>5</onright>
+		</control>
+
+		<control type="button" id="7">
+			<description>Default Control Button</description>
+			<align>left</align>
+			<height>50</height>
+			<font>Settings-Cat-Sub</font>
+			<textcolor>80FFFFFF</textcolor>
+			<focusedcolor>DDFFFFFF</focusedcolor>
+		</control>
+
+		<control type="radiobutton" id="8">
+			<description>Default Radio Button</description>
+			<radioposx>1080</radioposx>
+			<align>left</align>
+			<aligny>center</aligny>
+			<font>Settings-Cat-Sub</font>
+			<textcolor>80FFFFFF</textcolor>
+			<focusedcolor>DDFFFFFF</focusedcolor>
+		</control>
+
+		<control type="spincontrolex" id="9">
+			<description>Default Spin Control</description>
+			<align>left</align>
+			<!--<spinposx>0</spinposx>-->
+			<font>Settings-Cat-Sub</font>
+			<textcolor>80FFFFFF</textcolor>
+			<focusedcolor>DDFFFFFF</focusedcolor>
+		</control>
+
+		<control type="button" id="10">
+			<description>Default Button</description>
+			<align>left</align>
+			<aligny>center</aligny>
+			<height>70</height>
+			<font>Settings-Cat-Main</font>
+			<textoffsetx>10</textoffsetx>
+			<textcolor>AAFFFFFF</textcolor>
+			<focusedcolor>DDFFFFFF</focusedcolor>
+								<animation type="Focus" reversible="false">
+									<effect type="slide" start="0,0" end="0,15" time="10" />
+									<effect type="slide" start="0,0" end="0,-15" tween="back" easing="out" delay="10" time="390" />
+								</animation>
+
+		</control>
+
+	<!-- ICON CONTROLS -->
+
+<control type="group">
+			<posx>215</posx>
+			<posy>290</posy>
+			<width>70</width>
+			<height>500</height>
+
+			<!-- SETTINGS - VIDEOS -->
+
+			<control type="group"> 
+				<visible>Window.IsVisible(VideosSettings)</visible>
+				<control type="image">
+					<posx>10</posx>
+					<posy>10</posy>
+					<width>50</width>
+					<height>50</height>
+					<texture>icons/50px/folder2.png</texture>
+								<animation type="Conditional" condition="ControlGroup(3).HasFocus(-100)" reversible="false">
+									<effect type="slide" start="0,15" end="0,0" tween="back" easing="out" time="400" />
+								</animation>
+								<animation type="WindowOpen" reversible="false">
+									<effect type="slide" start="0,15" end="0,0" tween="back" easing="out" time="400" />
+								</animation>
+				</control>
+				<control type="image">
+					<posx>10</posx>
+					<posy>80</posy>
+					<width>50</width>
+					<height>50</height>
+					<texture>icons/50px/play.png</texture>
+								<animation type="Conditional" condition="ControlGroup(3).HasFocus(-99)" reversible="false">
+									<effect type="slide" start="0,15" end="0,0" tween="back" easing="out" time="400" />
+								</animation>
+				</control>
+				<control type="image">
+					<posx>10</posx>
+					<posy>150</posy>
+					<width>50</width>
+					<height>50</height>
+					<texture>icons/50px/speedtest.png</texture>
+								<animation type="Conditional" condition="ControlGroup(3).HasFocus(-98)" reversible="false">
+									<effect type="slide" start="0,15" end="0,0" tween="back" easing="out" time="400" />
+								</animation>
+				</control>
+				<control type="image">
+					<posx>10</posx>
+					<posy>220</posy>
+					<width>50</width>
+					<height>50</height>
+					<texture>icons/50px/diskinfo.png</texture>
+								<animation type="Conditional" condition="ControlGroup(3).HasFocus(-97)" reversible="false">
+									<effect type="slide" start="0,15" end="0,0" tween="back" easing="out" time="400" />
+								</animation>
+				</control>
+				<control type="image">
+					<posx>10</posx>
+					<posy>290</posy>
+					<width>50</width>
+					<height>50</height>
+					<texture>icons/50px/camcard.png</texture>
+								<animation type="Conditional" condition="ControlGroup(3).HasFocus(-96)" reversible="false">
+									<effect type="slide" start="0,15" end="0,0" tween="back" easing="out" time="400" />
+								</animation>
+				</control>
+				<control type="image">
+					<posx>10</posx>
+					<posy>360</posy>
+					<width>50</width>
+					<height>50</height>
+					<texture>icons/50px/dvdprofiler.png</texture>
+								<animation type="Conditional" condition="ControlGroup(3).HasFocus(-95)" reversible="false">
+									<effect type="slide" start="0,15" end="0,0" tween="back" easing="out" time="400" />
+								</animation>
+				</control>
+			</control>
+			
+			<!-- SETTINGS - MUSIC -->
+
+			<control type="group">
+				<visible>Window.IsVisible(MusicSettings)</visible>
+				<control type="image">
+					<posx>10</posx>
+					<posy>10</posy>
+					<width>50</width>
+					<height>50</height>
+					<texture>icons/50px/folder2.png</texture>
+								<animation type="Conditional" condition="ControlGroup(3).HasFocus(-100)" reversible="false">
+									<effect type="slide" start="0,15" end="0,0" tween="back" easing="out" time="400" />
+								</animation>
+				</control>
+				<control type="image">
+					<posx>10</posx>
+					<posy>80</posy>
+					<width>50</width>
+					<height>50</height>
+					<texture>icons/50px/equalizer.png</texture>
+								<animation type="Conditional" condition="ControlGroup(3).HasFocus(-99)" reversible="false">
+									<effect type="slide" start="0,15" end="0,0" tween="back" easing="out" time="400" />
+								</animation>
+				</control>
+				<control type="image">
+					<posx>10</posx>
+					<posy>150</posy>
+					<width>50</width>
+					<height>50</height>
+					<texture>icons/50px/diskinfo.png</texture>
+								<animation type="Conditional" condition="ControlGroup(3).HasFocus(-98)" reversible="false">
+									<effect type="slide" start="0,15" end="0,0" tween="back" easing="out" time="400" />
+								</animation>
+				</control>
+				<control type="image">
+					<posx>10</posx>
+					<posy>220</posy>
+					<width>50</width>
+					<height>50</height>
+					<texture>icons/50px/albumartgrabber.png</texture>
+								<animation type="Conditional" condition="ControlGroup(3).HasFocus(-97)" reversible="false">
+									<effect type="slide" start="0,15" end="0,0" tween="back" easing="out" time="400" />
+								</animation>
+				</control>
+				<control type="image">
+					<posx>10</posx>
+					<posy>290</posy>
+					<width>50</width>
+					<height>50</height>
+					<texture>icons/50px/autorap.png</texture>
+								<animation type="Conditional" condition="ControlGroup(3).HasFocus(-96)" reversible="false">
+									<effect type="slide" start="0,15" end="0,0" tween="back" easing="out" time="400" />
+								</animation>
+				</control>
+			</control>
+			
+			<!-- PICTURES - SETTINGS -->
+
+			<control type="group">
+				<visible>Window.IsVisible(PicturesSettings)</visible>
+				<control type="image">
+					<posx>10</posx>
+					<posy>10</posy>
+					<width>50</width>
+					<height>50</height>
+					<texture>icons/50px/diskinfo.png</texture>
+								<animation type="Conditional" condition="ControlGroup(3).HasFocus(-100)" reversible="false">
+									<effect type="slide" start="0,15" end="0,0" tween="back" easing="out" time="400" />
+								</animation>
+				</control>
+				<control type="image">
+					<posx>10</posx>
+					<posy>80</posy>
+					<width>50</width>
+					<height>50</height>
+					<texture>icons/50px/photomontager.png</texture>
+								<animation type="Conditional" condition="ControlGroup(3).HasFocus(-99)" reversible="false">
+									<effect type="slide" start="0,15" end="0,0" tween="back" easing="out" time="400" />
+								</animation>
+				</control>
+			</control>
+			
+			<!-- SETTINGS - WEATHER -->
+
+			<control type="group">
+				<visible>Window.IsVisible(WeatherSettings)</visible>
+				<control type="image">
+					<posx>-30</posx>
+					<posy>0</posy>
+					<width>60</width>
+					<height>50</height>
+					<texture>settings\tabs\weather_general_nf.png</texture>
+								<animation type="Conditional" condition="ControlGroup(3).HasFocus(-100)" reversible="false">
+									<effect type="slide" start="0,15" end="0,0" tween="back" easing="out" time="400" />
+								</animation>
+				</control>
+			</control>
+			
+			<!-- SETTINGS - NETWORK -->
+
+			<control type="group">
+				<visible>Window.IsVisible(NetworkSettings)</visible>
+				<visible>!System.Platform.Linux</visible>
+				<control type="image">
+					<posx>-63</posx>
+					<posy>0</posy>
+					<width>60</width>
+					<height>50</height>
+					<texture>settings\tabs\network_services_nf.png</texture>
+					<visible>!ControlGroup(3).HasFocus(-100)</visible>
+				</control>
+				<control type="image">
+					<posx>3</posx>
+					<posy>0</posy>
+					<width>60</width>
+					<height>50</height>
+					<texture>settings\tabs\network_internet_nf.png</texture>
+					<visible>!ControlGroup(3).HasFocus(-99)</visible>
+				</control>
+				<control type="image">
+					<posx>-63</posx>
+					<posy>0</posy>
+					<width>60</width>
+					<height>50</height>
+					<texture>settings\tabs\network_services_f.png</texture>
+					<visible>ControlGroup(3).HasFocus(-100)</visible>
+					<animation type="Conditional" condition="!ControlGroup(5).HasFocus">
+						<effect type="zoom" start="-63,0,60,50" end="-65,-2,64,54" time="200" />
+					</animation>
+				</control>
+				<control type="image">
+					<posx>3</posx>
+					<posy>0</posy>
+					<width>60</width>
+					<height>50</height>
+					<texture>settings\tabs\network_internet_f.png</texture>
+					<visible>ControlGroup(3).HasFocus(-99)</visible>
+					<animation type="Conditional" condition="!ControlGroup(5).HasFocus">
+						<effect type="zoom" start="3,0,60,50" end="1,-2,64,54" time="200" />
+					</animation>
+				</control>
+			</control>
+
+			<!-- SETTINGS - SYSTEM -->
+			
+			<control type="group">
+				<visible>Window.IsVisible(SystemSettings)</visible>
+				<control type="image">
+					<posx>10</posx>
+					<posy>10</posy>
+					<width>50</width>
+					<height>50</height>
+					<texture>icons/50px/videoplayer.png</texture>
+								<animation type="Conditional" condition="ControlGroup(3).HasFocus(-100)" reversible="false">
+									<effect type="slide" start="0,15" end="0,0" tween="back" easing="out" time="400" />
+								</animation>
+				</control>
+				<control type="image">
+					<posx>10</posx>
+					<posy>80</posy>
+					<width>50</width>
+					<height>50</height>
+					<texture>icons/50px/audioglow.png</texture>
+								<animation type="Conditional" condition="ControlGroup(3).HasFocus(-99)" reversible="false">
+									<effect type="slide" start="0,15" end="0,0" tween="back" easing="out" time="400" />
+								</animation>
+				</control>
+				<control type="image">
+					<posx>10</posx>
+					<posy>150</posy>
+					<width>50</width>
+					<height>50</height>
+					<texture>icons/50px/myremote.png</texture>
+								<animation type="Conditional" condition="ControlGroup(3).HasFocus(-98)" reversible="false">
+									<effect type="slide" start="0,15" end="0,0" tween="back" easing="out" time="400" />
+								</animation>
+				</control>
+				<control type="image">
+					<posx>10</posx>
+					<posy>220</posy>
+					<width>50</width>
+					<height>50</height>
+					<texture>icons/50px/wifiexplorer.png</texture>
+								<animation type="Conditional" condition="ControlGroup(3).HasFocus(-97)" reversible="false">
+									<effect type="slide" start="0,15" end="0,0" tween="back" easing="out" time="400" />
+								</animation>
+				</control>
+				<control type="image">
+					<posx>10</posx>
+					<posy>290</posy>
+					<width>50</width>
+					<height>50</height>
+					<texture>icons/50px/plug.png</texture>
+								<animation type="Conditional" condition="ControlGroup(3).HasFocus(-96)" reversible="false">
+									<effect type="slide" start="0,15" end="0,0" tween="back" easing="out" time="400" />
+								</animation>
+				</control>
+				<control type="image">
+					<posx>10</posx>
+					<posy>360</posy>
+					<width>50</width>
+					<height>50</height>
+					<texture>icons/50px/buildpropeditor.png</texture>
+								<animation type="Conditional" condition="ControlGroup(3).HasFocus(-95)" reversible="false">
+									<effect type="slide" start="0,15" end="0,0" tween="back" easing="out" time="400" />
+								</animation>
+				</control>
+				<control type="image">
+					<posx>10</posx>
+					<posy>430</posy>
+					<width>50</width>
+					<height>50</height>
+					<texture>icons/50px/locker_master.png</texture>
+								<animation type="Conditional" condition="ControlGroup(3).HasFocus(-94)" reversible="false">
+									<effect type="slide" start="0,15" end="0,0" tween="back" easing="out" time="400" />
+								</animation>
+				</control>
+			</control>
+			
+			<!-- SETTINGS - APPEARANCE -->
+
+			<control type="group">
+				<visible>Window.IsVisible(AppearanceSettings)</visible>
+				<control type="image">
+					<posx>10</posx>
+					<posy>10</posy>
+					<width>50</width>
+					<height>50</height>
+					<texture>icons/50px/personalize.png</texture>
+								<animation type="Conditional" condition="ControlGroup(3).HasFocus(-100)" reversible="false">
+									<effect type="slide" start="0,15" end="0,0" tween="back" easing="out" time="400" />
+								</animation>
+								<animation type="WindowOpen" reversible="false">
+									<effect type="slide" start="0,15" end="0,0" tween="back" easing="out" time="400" />
+								</animation>
+				</control>
+				<control type="image">
+					<posx>10</posx>
+					<posy>80</posy>
+					<width>50</width>
+					<height>50</height>
+					<texture>icons/50px/globe3.png</texture>
+								<animation type="Conditional" condition="ControlGroup(3).HasFocus(-99)" reversible="false">
+									<effect type="slide" start="0,15" end="0,0" tween="back" easing="out" time="400" />
+								</animation>
+								<animation type="WindowOpen" reversible="false">
+									<effect type="slide" start="0,15" end="0,0" tween="back" easing="out" time="400" />
+								</animation>
+				</control>
+				<control type="image">
+					<posx>10</posx>
+					<posy>150</posy>
+					<width>50</width>
+					<height>50</height>
+					<texture>icons/50px/diskinfo.png</texture>
+								<animation type="Conditional" condition="ControlGroup(3).HasFocus(-98)" reversible="false">
+									<effect type="slide" start="0,15" end="0,0" tween="back" easing="out" time="400" />
+								</animation>
+								<animation type="WindowOpen" reversible="false">
+									<effect type="slide" start="0,15" end="0,0" tween="back" easing="out" time="400" />
+								</animation>
+				</control>
+				<control type="image">
+					<posx>10</posx>
+					<posy>220</posy>
+					<width>50</width>
+					<height>50</height>
+					<texture>icons/50px/wallpaperchanger.png</texture>
+								<animation type="Conditional" condition="ControlGroup(3).HasFocus(-97)" reversible="false">
+									<effect type="slide" start="0,15" end="0,0" tween="back" easing="out" time="400" />
+								</animation>
+								<animation type="WindowOpen" reversible="false">
+									<effect type="slide" start="0,15" end="0,0" tween="back" easing="out" time="400" />
+								</animation>
+				</control>
+			</control>
+
+			<!-- SETTINGS - SERVICES -->
+
+			<control type="group">
+				<visible>Window.IsVisible(ServiceSettings)</visible>
+				<control type="image">
+					<posx>10</posx>
+					<posy>10</posy>
+					<width>50</width>
+					<height>50</height>
+					<texture>icons/50px/cogs.png</texture>
+								<animation type="Conditional" condition="ControlGroup(3).HasFocus(-100)" reversible="false">
+									<effect type="slide" start="0,15" end="0,0" tween="back" easing="out" time="400" />
+								</animation>
+								<animation type="WindowOpen" reversible="false">
+									<effect type="slide" start="0,15" end="0,0" tween="back" easing="out" time="400" />
+								</animation>
+				</control>
+				<control type="image">
+					<posx>10</posx>
+					<posy>80</posy>
+					<width>50</width>
+					<height>50</height>
+					<texture>icons/50px/share.png</texture>
+								<animation type="Conditional" condition="ControlGroup(3).HasFocus(-99)" reversible="false">
+									<effect type="slide" start="0,15" end="0,0" tween="back" easing="out" time="400" />
+								</animation>
+								<animation type="WindowOpen" reversible="false">
+									<effect type="slide" start="0,15" end="0,0" tween="back" easing="out" time="400" />
+								</animation>
+				</control>
+				<control type="image">
+					<posx>10</posx>
+					<posy>150</posy>
+					<width>50</width>
+					<height>50</height>
+					<texture>icons/50px/wol.png</texture>
+								<animation type="Conditional" condition="ControlGroup(3).HasFocus(-98)" reversible="false">
+									<effect type="slide" start="0,15" end="0,0" tween="back" easing="out" time="400" />
+								</animation>
+								<animation type="WindowOpen" reversible="false">
+									<effect type="slide" start="0,15" end="0,0" tween="back" easing="out" time="400" />
+								</animation>
+				</control>
+				<control type="image">
+					<posx>10</posx>
+					<posy>220</posy>
+					<width>50</width>
+					<height>50</height>
+					<texture>icons/50px/philipsmyremote.png</texture>
+								<animation type="Conditional" condition="ControlGroup(3).HasFocus(-97)" reversible="false">
+									<effect type="slide" start="0,15" end="0,0" tween="back" easing="out" time="400" />
+								</animation>
+								<animation type="WindowOpen" reversible="false">
+									<effect type="slide" start="0,15" end="0,0" tween="back" easing="out" time="400" />
+								</animation>
+				</control>
+
+				<control type="image">
+					<posx>10</posx>
+					<posy>290</posy>
+					<width>50</width>
+					<height>50</height>
+					<texture>icons/50px/network.png</texture>
+								<animation type="Conditional" condition="ControlGroup(3).HasFocus(-96)" reversible="false">
+									<effect type="slide" start="0,15" end="0,0" tween="back" easing="out" time="400" />
+								</animation>
+								<animation type="WindowOpen" reversible="false">
+									<effect type="slide" start="0,15" end="0,0" tween="back" easing="out" time="400" />
+								</animation>
+				</control>
+				<control type="image">
+					<posx>10</posx>
+					<posy>360</posy>
+					<width>50</width>
+					<height>50</height>
+					<texture>icons/50px/allcast.png</texture>
+								<animation type="Conditional" condition="ControlGroup(3).HasFocus(-95)" reversible="false">
+									<effect type="slide" start="0,15" end="0,0" tween="back" easing="out" time="400" />
+								</animation>
+								<animation type="WindowOpen" reversible="false">
+									<effect type="slide" start="0,15" end="0,0" tween="back" easing="out" time="400" />
+								</animation>
+				</control>
+			</control>
+
+			<!-- TV SETTINGS -->
+
+			<control type="group">
+				<visible>Window.IsVisible(TvSettings)</visible>
+				<control type="image">
+					<posx>10</posx>
+					<posy>10</posy>
+					<width>50</width>
+					<height>50</height>
+					<texture>icons/50px/cogs.png</texture>
+								<animation type="Conditional" condition="ControlGroup(3).HasFocus(-100)" reversible="false">
+									<effect type="slide" start="0,15" end="0,0" tween="back" easing="out" time="400" />
+								</animation>
+								<animation type="WindowOpen" reversible="false">
+									<effect type="slide" start="0,15" end="0,0" tween="back" easing="out" time="400" />
+								</animation>
+				</control>
+				<control type="image">
+					<posx>10</posx>
+					<posy>80</posy>
+					<width>50</width>
+					<height>50</height>
+					<texture>icons/50px/familyfued.png</texture>
+								<animation type="Conditional" condition="ControlGroup(3).HasFocus(-99)" reversible="false">
+									<effect type="slide" start="0,15" end="0,0" tween="back" easing="out" time="400" />
+								</animation>
+								<animation type="WindowOpen" reversible="false">
+									<effect type="slide" start="0,15" end="0,0" tween="back" easing="out" time="400" />
+								</animation>
+				</control>
+				<control type="image">
+					<posx>10</posx>
+					<posy>150</posy>
+					<width>50</width>
+					<height>50</height>
+					<texture>icons/50px/matchstv.png</texture>
+								<animation type="Conditional" condition="ControlGroup(3).HasFocus(-98)" reversible="false">
+									<effect type="slide" start="0,15" end="0,0" tween="back" easing="out" time="400" />
+								</animation>
+								<animation type="WindowOpen" reversible="false">
+									<effect type="slide" start="0,15" end="0,0" tween="back" easing="out" time="400" />
+								</animation>
+				</control>
+				<control type="image">
+					<posx>10</posx>
+					<posy>220</posy>
+					<width>50</width>
+					<height>50</height>
+					<texture>icons/50px/play.png</texture>
+								<animation type="Conditional" condition="ControlGroup(3).HasFocus(-97)" reversible="false">
+									<effect type="slide" start="0,15" end="0,0" tween="back" easing="out" time="400" />
+								</animation>
+								<animation type="WindowOpen" reversible="false">
+									<effect type="slide" start="0,15" end="0,0" tween="back" easing="out" time="400" />
+								</animation>
+				</control>
+
+				<control type="image">
+					<posx>10</posx>
+					<posy>290</posy>
+					<width>50</width>
+					<height>50</height>
+					<texture>icons/50px/recscreenrecorder.png</texture>
+								<animation type="Conditional" condition="ControlGroup(3).HasFocus(-96)" reversible="false">
+									<effect type="slide" start="0,15" end="0,0" tween="back" easing="out" time="400" />
+								</animation>
+								<animation type="WindowOpen" reversible="false">
+									<effect type="slide" start="0,15" end="0,0" tween="back" easing="out" time="400" />
+								</animation>
+				</control>
+				<control type="image">
+					<posx>10</posx>
+					<posy>360</posy>
+					<width>50</width>
+					<height>50</height>
+					<texture>icons/50px/plug.png</texture>
+								<animation type="Conditional" condition="ControlGroup(3).HasFocus(-95)" reversible="false">
+									<effect type="slide" start="0,15" end="0,0" tween="back" easing="out" time="400" />
+								</animation>
+								<animation type="WindowOpen" reversible="false">
+									<effect type="slide" start="0,15" end="0,0" tween="back" easing="out" time="400" />
+								</animation>
+				</control>
+				<control type="image">
+					<posx>10</posx>
+					<posy>430</posy>
+					<width>50</width>
+					<height>50</height>
+					<texture>icons/50px/glovebox.png</texture>
+								<animation type="Conditional" condition="ControlGroup(3).HasFocus(-94)" reversible="false">
+									<effect type="slide" start="0,15" end="0,0" tween="back" easing="out" time="400" />
+								</animation>
+								<animation type="WindowOpen" reversible="false">
+									<effect type="slide" start="0,15" end="0,0" tween="back" easing="out" time="400" />
+								</animation>
+				</control>
+				<control type="image">
+					<posx>10</posx>
+					<posy>500</posy>
+					<width>50</width>
+					<height>50</height>
+					<texture>icons/50px/checkmark.png</texture>
+								<animation type="Conditional" condition="ControlGroup(3).HasFocus(-93)" reversible="false">
+									<effect type="slide" start="0,15" end="0,0" tween="back" easing="out" time="400" />
+								</animation>
+								<animation type="WindowOpen" reversible="false">
+									<effect type="slide" start="0,15" end="0,0" tween="back" easing="out" time="400" />
+								</animation>
+				</control>
+			</control>
+
+			<!-- WEATHER SETTINGS -->
+			<control type="group">
+				<visible>Window.IsVisible(WeatherSettings)</visible>
+				<control type="image">
+					<posx>10</posx>
+					<posy>10</posy>
+					<width>50</width>
+					<height>50</height>
+					<texture>icons/50px/cogs.png</texture>
+								<animation type="Conditional" condition="ControlGroup(3).HasFocus(-100)" reversible="false">
+									<effect type="slide" start="0,15" end="0,0" tween="back" easing="out" time="400" />
+								</animation>
+								<animation type="WindowOpen" reversible="false">
+									<effect type="slide" start="0,15" end="0,0" tween="back" easing="out" time="400" />
+								</animation>
+				</control>
+			</control>
+			
+		</control>
+	</control>
+
+		<!-- HEADER WITH BREADCRUMB -->
+
+<control type="group">
+	
+			<animation type="WindowClose" reversible="false">
+  				<effect type="fade" start="100" end="0" time="600" />
+			</animation>
+
+
+	<control type="image">
+		<posy>40</posy>
+		<posx>45</posx>
+		<width>100</width>
+		<height>100</height>
+		<colordiffuse>80FFFFFF</colordiffuse>
+		<texture>icons/Other/300px-Thumbnail-symbol-transparent.png</texture>
+		<animation type="WindowOpen" reversible="false">
+  			<effect type="slide" start="0,-100" end="0,0" time="700" delay="500" tween="quadratic" easing="out" />
+ 			<effect type="fade" start="0" end="100" delay="500" time="705" />
+		</animation>
+
+	</control>
+
+	<control type="label">
+		<posy>50</posy>
+		<posx>158</posx>
+		<font>Header-Main</font>
+		<textcolor>CCFFFFFF</textcolor>
+		<label>$LOCALIZE[5]</label>
+		<animation type="WindowOpen" reversible="false"> <!-- 200 sec gap -->
+			<effect type="slide" start="-100,0" end="0,0" delay="1400" time="1100" tween="quadratic" easing="out" />
+ 			<effect type="fade" start="50" end="100" delay="1400" time="1105" />
+		</animation>
+
+	</control>
+
+	<control type="label" id="2">
+		<posy>90</posy>
+		<posx>195</posx>
+		<font>ExtraSmall</font>
+		<textcolor>BBFFFFFF</textcolor>
+		<animation type="WindowOpen" reversible="false"><!-- -100 sec gap -->
+ 			<effect type="slide" start="-100,0" end="0,0" delay="2400" time="600" tween="cubic" easing="out" />
+ 			<effect type="fade" start="0" end="100" delay="2400" time="605" />
+		</animation>
+	</control>
+
+	<control type="image">
+		<posy>118</posy>
+		<posx>165</posx>
+		<width>16</width>
+		<height>16</height>
+		<colordiffuse>AAFFFFFF</colordiffuse>
+		<texture>icons/Other/rightarrow26.png</texture>
+		<animation type="WindowOpen" reversible="false"> <!-- -200 sec gap -->
+ 			<effect type="slide" start="-50,0" end="0,0" delay="2800" time="800" tween="circle" easing="out" />
+ 			<effect type="fade" start="0" end="100" delay="2800" time="605" />
+		</animation>
+	</control>
+
+</control>
+
+	</controls>
+
+
+
+
+</window>
